@@ -1,0 +1,17 @@
+/* Add purple line below navigation bar and H2 headers */
+.navbar, h2 {
+  border-bottom: purple 1px solid;
+}
+
+
+/* Make hyperlinks purple */
+a {
+  color: purple;
+}
+
+
+/* Increase font size and line spacing */
+p, li {
+  font-size: 16px;
+  line-height: 1.5;
+}

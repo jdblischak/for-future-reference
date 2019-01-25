@@ -68,6 +68,7 @@ h6 {
 }
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 
 </head>
 
@@ -281,6 +282,18 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Home</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Topics
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="math.html">Mathematics</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="about.html">About</a>
 </li>
@@ -359,18 +372,25 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong3a31d1e"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 3a31d1e </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreed5bcc6fad5a8fee3c91c14eb5c391b0357cbfa6etargetblankd5bcc6fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/d5bcc6fad5a8fee3c91c14eb5c391b0357cbfa6e" target="_blank">d5bcc6f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong3a31d1e" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreed5bcc6fad5a8fee3c91c14eb5c391b0357cbfa6etargetblankd5bcc6fa" class="panel-collapse collapse">
 <div class="panel-body">
+<p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
 <pre><code>
 Ignored files:
     Ignored:    .Rproj.user/
 
+Untracked files:
+    Untracked:  docs/style.css
+
 </code></pre>
-<p>Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.</p>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
 </div>
 </div>
 </div>
@@ -406,10 +426,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/61a43bffb0f2c68002db5c6877f569f9322a6178/docs/about.html" target="_blank">61a43bf</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-01-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-3a31d1e
+<a href="https://github.com/jdblischak/for-future-reference/blob/3a31d1efec850a6f2964e808d69e21076b19ddd7/analysis/about.Rmd" target="_blank">3a31d1e</a>
 </td>
 <td>
 John Blischak
@@ -426,7 +463,7 @@ Add project description and license. And change theme.
 Rmd
 </td>
 <td>
-1f8a2cd
+<a href="https://github.com/jdblischak/for-future-reference/blob/1f8a2cd3a5b5f1909396971ad3edba52a56192cd/analysis/about.Rmd" target="_blank">1f8a2cd</a>
 </td>
 <td>
 John Blischak
