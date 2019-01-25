@@ -1,7 +1,7 @@
 name: "for-future-reference"
 output_dir: ../docs
 navbar:
-  title: "for-future-reference"
+  title: "For future reference"
   left:
   - text: Home
     href: index.html
@@ -13,5 +13,5 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cosmo
+    theme: paper
     highlight: textmate

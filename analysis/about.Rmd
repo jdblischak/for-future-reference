@@ -5,4 +5,6 @@ output:
     toc: false
 ---
 
-Describe your project.
+I'm recording my notes here so that they are easier for me to find in the
+future. With any luck, maybe they will be useful for someone else. Note however
+that I make no guarantee that the URLs will be stable over time.

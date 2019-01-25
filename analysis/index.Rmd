@@ -6,4 +6,4 @@ output:
     toc: false
 ---
 
-Welcome to my research website.
+My personal notes on miscellaneous technical topics.
