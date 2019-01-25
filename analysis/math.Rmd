@@ -8,3 +8,7 @@ output:
 ## Discrete mathematics
 
 * [Proofs](discrete-proofs.html)
+
+## Linear algebra
+
+* [Matrix algebra](linalg-matrix.html)

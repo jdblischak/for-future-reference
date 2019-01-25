@@ -1,0 +1,77 @@
+---
+title: "Matrix algebra"
+author: "John Blischak"
+date: "2019-01-25"
+output: workflowr::wflow_html
+---
+
+## Matrix addition and scalar multiplication
+
+$$
+A = 
+ \begin{bmatrix}
+  -3 & -3 & 3 \\
+  1 & 0 & 2 \\
+  0 & -2 & 3 
+ \end{bmatrix}
+$$
+
+$$
+B = 
+ \begin{bmatrix}
+  -1 & 3 & 3 \\
+  -2 & 5 & 2 \\
+  1 & 2 & 4 
+ \end{bmatrix} 
+$$
+
+$$
+C = 
+ \begin{bmatrix}
+  -5 & 3 & 9 \\
+  -3 & 10 & 6 \\
+  2 & 2 & 11 
+ \end{bmatrix}
+$$
+
+In R:
+
+```{r matrices}
+A <- matrix(c(-3, -3, 3,
+              1, 0, 2,
+              0, -2, 3),
+            nrow = 3, byrow = TRUE)
+B <- matrix(c(-1, 3, 3,
+              -2, 5, 2,
+              1, 2, 4),
+            nrow = 3, byrow = TRUE)
+C <- matrix(c(-5, 3, 9,
+              -3, 10, 6,
+              2, 2, 11),
+            nrow = 3, byrow = TRUE)
+```
+
+Find $(A - B) + C$:
+
+
+```{r equation-1}
+(A - B) + C
+```
+
+Find $2A + B$:
+
+```{r}
+2 * A + B
+```
+
+They are equal, therefore:
+
+$$ 2A + B = (A - B) + C $$
+
+$$ A + 2B -C = 0$$
+
+```{r}
+A + 2 * B - C
+```
+
+
