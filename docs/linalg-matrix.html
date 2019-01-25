@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="John Blischak" />
 
+<meta name="date" content="2019-01-25" />
 
-<title>Mathematics</title>
+<title>Matrix algebra</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -319,10 +321,17 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Mathematics</h1>
+<h1 class="title toc-ignore">Matrix algebra</h1>
+<h4 class="author"><em>John Blischak</em></h4>
+<h4 class="date"><em>2019-01-25</em></h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#matrix-addition-and-scalar-multiplication">Matrix addition and scalar multiplication</a></li>
+</ul>
+</div>
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
@@ -347,7 +356,7 @@ div.section {
 <strong>Last updated:</strong> 2019-01-25
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
@@ -366,6 +375,42 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20190125code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20190125)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20190125code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20190125)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
 </div>
 </div>
 </div>
@@ -427,7 +472,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/7bbe37cbca445006c8b60ec2047f5ac6a9059dbd/analysis/math.Rmd" target="_blank">7bbe37c</a>
+<a href="https://github.com/jdblischak/for-future-reference/blob/7bbe37cbca445006c8b60ec2047f5ac6a9059dbd/analysis/linalg-matrix.Rmd" target="_blank">7bbe37c</a>
 </td>
 <td>
 John Blischak
@@ -439,40 +484,6 @@ John Blischak
 Add matrix addition and scalar multiplication.
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/354987240d308569b300ab49088c16aff5b122bc/docs/math.html" target="_blank">3549872</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-25
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/d5bcc6fad5a8fee3c91c14eb5c391b0357cbfa6e/analysis/math.Rmd" target="_blank">d5bcc6f</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-25
-</td>
-<td>
-Add style and navigation.
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -480,17 +491,101 @@ Add style and navigation.
 </div>
 </div>
 </div>
-<div id="discrete-mathematics" class="section level2">
-<h2>Discrete mathematics</h2>
-<ul>
-<li><a href="discrete-proofs.html">Proofs</a></li>
-</ul>
+<div id="matrix-addition-and-scalar-multiplication" class="section level2">
+<h2>Matrix addition and scalar multiplication</h2>
+<p><span class="math display">\[
+A = 
+ \begin{bmatrix}
+  -3 &amp; -3 &amp; 3 \\
+  1 &amp; 0 &amp; 2 \\
+  0 &amp; -2 &amp; 3 
+ \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+B = 
+ \begin{bmatrix}
+  -1 &amp; 3 &amp; 3 \\
+  -2 &amp; 5 &amp; 2 \\
+  1 &amp; 2 &amp; 4 
+ \end{bmatrix} 
+\]</span></p>
+<p><span class="math display">\[
+C = 
+ \begin{bmatrix}
+  -5 &amp; 3 &amp; 9 \\
+  -3 &amp; 10 &amp; 6 \\
+  2 &amp; 2 &amp; 11 
+ \end{bmatrix}
+\]</span></p>
+<p>In R:</p>
+<pre class="r"><code>A &lt;- matrix(c(-3, -3, 3,
+              1, 0, 2,
+              0, -2, 3),
+            nrow = 3, byrow = TRUE)
+B &lt;- matrix(c(-1, 3, 3,
+              -2, 5, 2,
+              1, 2, 4),
+            nrow = 3, byrow = TRUE)
+C &lt;- matrix(c(-5, 3, 9,
+              -3, 10, 6,
+              2, 2, 11),
+            nrow = 3, byrow = TRUE)</code></pre>
+<p>Find <span class="math inline">\((A - B) + C\)</span>:</p>
+<pre class="r"><code>(A - B) + C</code></pre>
+<pre><code>     [,1] [,2] [,3]
+[1,]   -7   -3    9
+[2,]    0    5    6
+[3,]    1   -2   10</code></pre>
+<p>Find <span class="math inline">\(2A + B\)</span>:</p>
+<pre class="r"><code>2 * A + B</code></pre>
+<pre><code>     [,1] [,2] [,3]
+[1,]   -7   -3    9
+[2,]    0    5    6
+[3,]    1   -2   10</code></pre>
+<p>They are equal, therefore:</p>
+<p><span class="math display">\[ 2A + B = (A - B) + C \]</span></p>
+<p><span class="math display">\[ A + 2B -C = 0\]</span></p>
+<pre class="r"><code>A + 2 * B - C</code></pre>
+<pre><code>     [,1] [,2] [,3]
+[1,]    0    0    0
+[2,]    0    0    0
+[3,]    0    0    0</code></pre>
+<br> <br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.5.2 (2018-12-20)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 18.04.1 LTS
+
+Matrix products: default
+BLAS: /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
+LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] workflowr_1.1.1.9001 Rcpp_1.0.0           digest_0.6.18       
+ [4] rprojroot_1.2        backports_1.1.3      git2r_0.24.0        
+ [7] magrittr_1.5         evaluate_0.12        stringi_1.2.4       
+[10] fs_1.2.6             whisker_0.3-2        rmarkdown_1.11      
+[13] tools_3.5.2          stringr_1.3.1        glue_1.3.0          
+[16] xfun_0.4             yaml_2.2.0           compiler_3.5.2      
+[19] htmltools_0.3.6      knitr_1.21          </code></pre>
 </div>
-<div id="linear-algebra" class="section level2">
-<h2>Linear algebra</h2>
-<ul>
-<li><a href="linalg-matrix.html">Matrix algebra</a></li>
-</ul>
 </div>
 
 
