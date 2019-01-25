@@ -1,0 +1,56 @@
+---
+title: "Some proofs from discrete mathematics"
+author: "John Blischak"
+date: "2019-01-25"
+output: workflowr::wflow_html
+---
+
+## Even and odd integers
+
+> If $k$ is any odd integer and $m$ is any even integer, then $k^{2} + m^{2}$ is
+odd.
+
+**Proof:** Let $k$ and $m$ be any integers, and suppose that $k$ is odd and $m$
+is even. By definition of odd, $k = 2r + 1$ for some integer $r$. By definition
+of even, $m = 2s$ for some integer $s$. It follows that
+
+$$ k^{2} + m^{2} = (2r + 1)^{2} + (2s)^{2} $$
+
+$$ = 2(2r^{2} + 2r + 2s^{2}) + 1 $$.
+
+$2r^{2} + 2r + 2s^{2}$ is an integer because sums and products of integers are
+integers. By definition of odd, $k^{2} + m^{2}$ is odd. $\square$
+
+## Divisibility
+
+> For all integers $a$, $b$, and $c$, if $a|b$ and $a|c$ then $a|(2b - 3c)$.
+
+**Proof:** Let $a$, $b$, and $c$ be any integers and suppose $a|b$ and $a|c$. By
+definition of divisibilty, $b = ra$ and $c = sa$ for some integers $r$ and $s$.
+It follows that
+
+$$ 2b - 3c = 2(ra) - 3(sa) = a(2r - 3s)  $$
+
+$2r - 3s$ is an integer because sums and products of integers are integers. Thus
+by definition of divisibility, $a|(2b - 3c)$. $\square$
+
+## Quotient-Remainder Theorem
+
+> The square of any integer has the form $3k$ or $3k + 1$ for some integer $k$.
+
+**Proof:** Let $n$ be any integer, then by QRT (with $d = 3$) $n = 3q + r$ for
+some integers $q$ and $r$ with $0 \leq r < 3$.
+
+* *Case 1:* Suppose $r = 0$. Then $n = 3q + 0 = 3q$ and $n^{2} = (3q)^{2} =
+3(3q^{2})$. Let $k = 3q^{2}$, which is an integer because products of integers
+are integers. Thus $n^{2} = 3k$.
+
+* *Case 2:* Suppose $r = 1$. Then $n = 3q + 1$ and $n^{2} = (3q + 1)^{2} =
+3(3q^{2} + 2q) + 1$. Let $k = 3q^{2} + 2q$, which is an integer because sums and
+products of integers are integers. Thus $n^{2} = 3k + 1$.
+
+* *Case 3:* Suppose $r = 2$. Then $n = 3q + 2$ and $n^{2} = (3q + 2)^{2} =
+3(3q^{2} + 4q + 1) + 1$. Let $k = 3q^{2} + 4q + 1$, which is an integer because
+sums and products of integers are integers. Thus $n^{2} = 3k + 1$.
+
+Therefore, in all cases $n^{2} = 3k$ or $n^{2} = 3k + 1$. $\square$
