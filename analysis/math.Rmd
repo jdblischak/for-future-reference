@@ -1,0 +1,10 @@
+---
+title: "Mathematics"
+output:
+  workflowr::wflow_html:
+    toc: false
+---
+
+## Discrete mathematics
+
+* [Proofs](discrete-proofs.html)

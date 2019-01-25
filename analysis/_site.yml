@@ -5,6 +5,10 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: "Topics"
+    menu:
+      - text: "Mathematics"
+        href: math.html
   - text: About
     href: about.html
   - text: License
@@ -12,6 +16,6 @@ navbar:
 output:
   workflowr::wflow_html:
     toc: yes
-    toc_float: yes
     theme: paper
     highlight: textmate
+    css: style.css

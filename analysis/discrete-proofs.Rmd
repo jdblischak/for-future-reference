@@ -16,7 +16,7 @@ of even, $m = 2s$ for some integer $s$. It follows that
 
 $$ k^{2} + m^{2} = (2r + 1)^{2} + (2s)^{2} $$
 
-$$ = 2(2r^{2} + 2r + 2s^{2}) + 1 $$.
+$$ = 2(2r^{2} + 2r + 2s^{2}) + 1. $$
 
 $2r^{2} + 2r + 2s^{2}$ is an integer because sums and products of integers are
 integers. By definition of odd, $k^{2} + m^{2}$ is odd. $\square$
@@ -29,7 +29,7 @@ integers. By definition of odd, $k^{2} + m^{2}$ is odd. $\square$
 definition of divisibilty, $b = ra$ and $c = sa$ for some integers $r$ and $s$.
 It follows that
 
-$$ 2b - 3c = 2(ra) - 3(sa) = a(2r - 3s)  $$
+$$ 2b - 3c = 2(ra) - 3(sa) = a(2r - 3s).  $$
 
 $2r - 3s$ is an integer because sums and products of integers are integers. Thus
 by definition of divisibility, $a|(2b - 3c)$. $\square$
