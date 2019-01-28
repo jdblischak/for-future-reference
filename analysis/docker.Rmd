@@ -1,0 +1,146 @@
+---
+title: "Docker"
+author: "John Blischak"
+date: "2019-01-28"
+output: workflowr::wflow_html
+---
+
+Docker is virtualization software. The official documentation is at
+[docs.docker.com](https://docs.docker.com/).
+
+Terminology:
+
+* "A **container** is a runtime instance of an **image**" -
+[official docs](https://docs.docker.com/get-started/#images-and-containers)
+
+Getting help:
+
+```
+docker --help
+docker <subcommand> --help
+```
+
+## Using Docker containers
+
+The name of an image is referred to as a repository. If the repository is from a
+remote source like DockerHub, it will also have an associated username. Lastly,
+each version of the image has a specific tag (the default is `latest`). Thus in
+the commands below, any instance of `<image>` can be replaced with the
+corresponding `(username/)repository(:tag)` that specifies the desired image.
+
+* Pull an image from [DockerHub][].
+
+[DockerHub]: https://hub.docker.com
+
+```
+docker pull <image>
+docker pull continuumio/miniconda3
+docker pull continuumio/miniconda3:4.5.11
+```
+
+* View available Docker images that you have built or downloaded:
+
+```
+docker image ls
+# Alternative:
+docker images
+```
+
+* Run a command in a container from an available image:
+
+```
+docker run --rm <image> <command>
+```
+
+* View running containers:
+
+```
+docker container ls
+# Alternative:
+docker ps
+```
+
+* Stop a running container:
+
+```
+docker stop <container>
+```
+
+You can reference the container by its ID or Name (you have to run `docker
+container ls` to obtain this information).
+
+* Start an interactive container:
+
+```
+docker run --rm -it <image>
+# Depending on the Dockerfile, you may have to specify the executable to run
+docker run --rm -it <image> bash
+```
+
+## Building a Docker image
+
+
+* Build and tag an image specified in a file `Dockerfile` in the current working
+directory:
+
+```
+docker build -t <name-of-tag> .
+```
+
+* Clean up:
+
+```
+# Remove exited containers:
+docker ps -aq --no-trunc -f status=exited | xargs docker rm
+# Remove untagged images:
+docker images -q --filter dangling=true | xargs docker rmi
+```
+
+* Basic outline of a Dockerfile:
+
+```
+# Start with the xenial tag of the ubuntu image
+FROM ubuntu:xenial
+
+# Add contact info
+MAINTAINER <name>, <email>
+
+# Install software
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    emacs \
+    git \
+    nano
+
+# Execute code
+RUN mkdir /root/project
+
+# Set the working directory
+WORKDIR /root/project
+
+# Copy file from local machine to Docker image
+COPY file.txt /root/project/
+
+# Copy directory from local machine to Docker image
+COPY dir/ /root/project/dir/
+
+# Run this command by default when running an interactive container
+CMD [ "/bin/bash" ]
+```
+
+## Useful images
+
+* [continuumio/miniconda3](https://hub.docker.com/r/continuumio/miniconda3)
+([source](https://github.com/ContinuumIO/docker-images))
+
+Launch Jupyter from a Docker container (see my
+[comment](https://github.com/ContinuumIO/docker-images/issues/85#issuecomment-437152550)
+on GitHub for details):
+
+```
+docker run -i -t -p 8888:8888 continuumio/miniconda3 /bin/bash -c "/opt/conda/bin/conda install -c conda-forge jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='0.0.0.0' --port=8888 --no-browser --allow-root"
+```
+
+* [rocker](https://hub.docker.com/u/rocker)
+([source](https://github.com/rocker-org/rocker))
+    * r-base, r-tidyverse, rocker/tidyverse:3.3.1
