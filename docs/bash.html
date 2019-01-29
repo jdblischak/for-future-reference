@@ -418,10 +418,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree695323a45b6b46563f7afb3ae6f9caca793fe12btargetblank695323aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/695323a45b6b46563f7afb3ae6f9caca793fe12b" target="_blank">695323a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree79b756b545538e94b5d78bf283749f51f8208091targetblank79b756ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/79b756b545538e94b5d78bf283749f51f8208091" target="_blank">79b756b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree695323a45b6b46563f7afb3ae6f9caca793fe12btargetblank695323aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree79b756b545538e94b5d78bf283749f51f8208091targetblank79b756ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -473,6 +473,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/jdblischak/for-future-reference/blob/79b756b545538e94b5d78bf283749f51f8208091/analysis/bash.Rmd" target="_blank">79b756b</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-01-29
+</td>
+<td>
+Document Bash command hash.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/65fb12f31c7ca0aa6fa2a29dcdfaca9f1c08d6a9/docs/bash.html" target="_blank">65fb12f</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-01-29
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/jdblischak/for-future-reference/blob/695323a45b6b46563f7afb3ae6f9caca793fe12b/analysis/bash.Rmd" target="_blank">695323a</a>
 </td>
 <td>
@@ -514,6 +548,20 @@ echo $?</code></pre>
 &gt; a
 &gt; b
 &gt; c</code></pre>
+<ul>
+<li>Use <code>hash</code> to see a tally of the executables you have run and <code>hash -r</code> to reset the hash. Bash first looks in the hash prior to searching <code>$PATH</code> (since that is faster), so it is useful to reset the hash anytime you modify <code>$PATH</code>.
+<ul>
+<li><a href="https://stackoverflow.com/questions/41450171/miniconda-and-travis-what-does-hash-r-do">What does hash -r do?</a></li>
+<li><a href="https://unix.stackexchange.com/questions/86012/what-is-the-purpose-of-the-hash-command">What is the purpose of the hash command?</a></li>
+</ul></li>
+</ul>
+<pre class="bash"><code>ls &gt; /dev/null
+ls &gt; /dev/null
+R --version &gt; /dev/null
+hash</code></pre>
+<pre><code>hits    command
+   1    /usr/bin/R
+   2    /bin/ls</code></pre>
 <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
