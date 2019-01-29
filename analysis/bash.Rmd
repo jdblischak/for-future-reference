@@ -33,3 +33,16 @@ diff <(echo -e "1\n2\n3") <(echo -e "a\nb\nc")
 # a bash chunk has a non-zero exit code, then knitr fails.
 # https://github.com/rstudio/rmarkdown/issues/294
 ```
+
+* Use `hash` to see a tally of the executables you have run and `hash -r` to
+reset the hash. Bash first looks in the hash prior to searching `$PATH` (since
+that is faster), so it is useful to reset the hash anytime you modify `$PATH`.
+    * [What does hash -r do?](https://stackoverflow.com/questions/41450171/miniconda-and-travis-what-does-hash-r-do)
+    * [What is the purpose of the hash command?](https://unix.stackexchange.com/questions/86012/what-is-the-purpose-of-the-hash-command)
+
+```{bash}
+ls > /dev/null
+ls > /dev/null
+R --version > /dev/null
+hash
+```
