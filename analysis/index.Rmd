@@ -11,4 +11,5 @@ My personal notes on miscellaneous technical topics.
 Topics:
 
 * [Mathematics](math.html)
+* [Programming](programming.html)
 * [Software development](software.html)

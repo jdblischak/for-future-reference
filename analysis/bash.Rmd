@@ -1,0 +1,35 @@
+---
+title: "Bash"
+author: "John Blischak"
+date: "2019-01-28"
+output: workflowr::wflow_html
+---
+
+* View the most recent exit code with `$?`
+
+```{bash}
+echo "a b c" | grep b
+echo $?
+```
+
+```{bash}
+echo "a b c" | grep z
+echo $?
+```
+
+* Use process substitution to save standard output to a temporary file. This is
+very useful for when a command only accepts files or needs to accept multiple
+files as input. See the very nice blog post [Using Names Pipes and Process
+Substitution in Bioinformatics][process-substitution] for more details.
+
+[process-substitution]: http://vincebuffalo.org/blog/2013/08/08/using-names-pipes-and-process-substitution-in-bioinformatics.html
+
+```{bash, error=TRUE}
+diff <(echo -e "1\n2\n3") <(echo -e "a\nb\nc")
+```
+
+```{r include=FALSE}
+# A note on the above chunk. I had to set error=TRUE because if the last line of
+# a bash chunk has a non-zero exit code, then knitr fails.
+# https://github.com/rstudio/rmarkdown/issues/294
+```

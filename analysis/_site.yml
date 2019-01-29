@@ -9,6 +9,8 @@ navbar:
     menu:
       - text: "Mathematics"
         href: math.html
+      - text: "Programming"
+        href: programming.html
       - text: "Software development"
         href: software.html
   - text: About
