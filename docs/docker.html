@@ -295,6 +295,9 @@ $(document).ready(function () {
       <a href="math.html">Mathematics</a>
     </li>
     <li>
+      <a href="programming.html">Programming</a>
+    </li>
+    <li>
       <a href="software.html">Software development</a>
     </li>
   </ul>
@@ -334,7 +337,9 @@ div.section {
 <ul>
 <li><a href="#using-docker-containers">Using Docker containers</a></li>
 <li><a href="#building-a-docker-image">Building a Docker image</a></li>
+<li><a href="#mounting-a-local-directory-in-a-docker-container">Mounting a local directory in a Docker container</a></li>
 <li><a href="#useful-images">Useful images</a></li>
+<li><a href="#tutorials">Tutorials</a></li>
 </ul>
 </div>
 
@@ -358,7 +363,7 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-01-28
+<strong>Last updated:</strong> 2019-02-06
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -386,10 +391,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree86f5c3d56a2f30b9f56f166374830a1cddabbee3targetblank86f5c3da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/86f5c3d56a2f30b9f56f166374830a1cddabbee3" target="_blank">86f5c3d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree440a5eb83f9a343a6deece8ff18c4c42181c8f13targetblank440a5eba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/440a5eb83f9a343a6deece8ff18c4c42181c8f13" target="_blank">440a5eb</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree86f5c3d56a2f30b9f56f166374830a1cddabbee3targetblank86f5c3da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree440a5eb83f9a343a6deece8ff18c4c42181c8f13targetblank440a5eba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -436,6 +441,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jdblischak/for-future-reference/blob/440a5eb83f9a343a6deece8ff18c4c42181c8f13/analysis/docker.Rmd" target="_blank">440a5eb</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-02-06
+</td>
+<td>
+Add sagemath Docker container and how to mount local directory.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/84cd2a16cdcc30ecac4d1f1ecb6a20f1fe208256/docs/docker.html" target="_blank">84cd2a1</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-01-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -549,6 +588,24 @@ COPY dir/ /root/project/dir/
 # Run this command by default when running an interactive container
 CMD [ &quot;/bin/bash&quot; ]</code></pre>
 </div>
+<div id="mounting-a-local-directory-in-a-docker-container" class="section level2">
+<h2>Mounting a local directory in a Docker container</h2>
+<p>A Docker container can be very useful for running software that requires a complex installation. However, in order for this useful, it needs to be able to read and write from the local host machine. To mount a local directory, use the flag <code>-v</code>.</p>
+<pre><code>docker run -it -v ~/Desktop/project:/project ubuntu bash</code></pre>
+<p>Note that it is critical that both the local and container paths are absolute paths. Docker will throw an error if the container path is not absolute. However, if the local path is relative, instead of mounting that directory, it will create a new volume and save the files there (use <code>docker volume list</code> to view and <code>docker volume rm &lt;name&gt;</code> to delete).</p>
+<p>For Docker containers that are run as root, the newly created files have <code>root</code> permissions. This is annoying, but the only workaround I have found is building your own Docker image that adds a layer creating a local user.</p>
+<p>For Docker containers that are run as non-root, you should be able to read and write both in the container and from the local machine with no issues.</p>
+<p>Resources:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/39397548/how-to-give-non-root-user-in-docker-container-access-to-a-volume-mounted-on-the">How to give non-root user in Docker container access to a volume mounted on the host</a></li>
+<li><a href="https://github.com/moby/moby/issues/2372">Specify the ownership of new files created in the mounted volume.</a></li>
+<li><a href="https://github.com/moby/moby/issues/3124">Volumes files have root owner when running docker with non-root user.</a></li>
+<li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user">Best practices for USER</a></li>
+<li><a href="https://github.com/rocker-org/rocker/wiki/managing-users-in-docker">rocker - managing users in docker</a></li>
+<li><a href="https://github.com/rocker-org/rocker/wiki/Sharing-files-with-host-machine">rocker - Sharing files with host machine</a></li>
+<li><a href="https://docs.docker.com/storage/volumes/">Use volumes</a></li>
+</ul>
+</div>
 <div id="useful-images" class="section level2">
 <h2>Useful images</h2>
 <ul>
@@ -561,6 +618,17 @@ CMD [ &quot;/bin/bash&quot; ]</code></pre>
 <ul>
 <li>r-base, r-tidyverse, rocker/tidyverse:3.3.1</li>
 </ul></li>
+<li><a href="https://hub.docker.com/r/sagemath/sagemath/">sagemath</a> (<a href="https://github.com/sagemath/sage/blob/master/docker/Dockerfile">source</a>)</li>
+</ul>
+<pre><code>docker run -p 8888:8888 sagemath/sagemath:latest sage-jupyter</code></pre>
+<p>The URL that <code>sage-jupyter</code> returns is rough, e.g. <code>http://0efce28e9a34:8888/?token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b&amp;token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b</code>. First, you have to update the address to be <code>http://localhost:8888</code>. Second, it repeats the same token twice. This still works though.</p>
+<p>Note that <code>sage-jupyter</code> is a variable that is controlled by <a href="https://github.com/sagemath/sage/blob/master/docker/entrypoint.sh"><code>entrypoint.sh</code></a>. It executes <code>sage -n jupyter --no-browser --ip='0.0.0.0' --port=8888</code>.</p>
+</div>
+<div id="tutorials" class="section level2">
+<h2>Tutorials</h2>
+<ul>
+<li><a href="http://erick.matsen.org/2018/04/19/docker.html">Docker for the busy researcher</a></li>
+<li><a href="http://tiffanytimbers.com/Using-docker-for-reproducible-research/">Using Docker for Reproducible Research</a></li>
 </ul>
 </div>
 
