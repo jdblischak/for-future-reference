@@ -128,6 +128,37 @@ COPY dir/ /root/project/dir/
 CMD [ "/bin/bash" ]
 ```
 
+## Mounting a local directory in a Docker container
+
+A Docker container can be very useful for running software that requires a complex installation. However, in order for this useful, it needs to be able to read and write from the local host machine. To mount a local directory, use the flag `-v`.
+
+```
+docker run -it -v ~/Desktop/project:/project ubuntu bash
+```
+
+Note that it is critical that both the local and container paths are absolute
+paths. Docker will throw an error if the container path is not absolute.
+However, if the local path is relative, instead of mounting that directory, it
+will create a new volume and save the files there (use `docker volume list` to
+view and `docker volume rm <name>` to delete).
+
+For Docker containers that are run as root, the newly created files have `root`
+permissions. This is annoying, but the only workaround I have found is building
+your own Docker image that adds a layer creating a local user.
+
+For Docker containers that are run as non-root, you should be able to read and
+write both in the container and from the local machine with no issues.
+
+Resources:
+
+* [How to give non-root user in Docker container access to a volume mounted on the host](https://stackoverflow.com/questions/39397548/how-to-give-non-root-user-in-docker-container-access-to-a-volume-mounted-on-the)
+* [Specify the ownership of new files created in the mounted volume.](https://github.com/moby/moby/issues/2372)
+* [Volumes files have root owner when running docker with non-root user.](https://github.com/moby/moby/issues/3124)
+* [Best practices for USER](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user)
+* [rocker - managing users in docker](https://github.com/rocker-org/rocker/wiki/managing-users-in-docker)
+* [rocker - Sharing files with host machine](https://github.com/rocker-org/rocker/wiki/Sharing-files-with-host-machine)
+* [Use volumes](https://docs.docker.com/storage/volumes/)
+
 ## Useful images
 
 * [continuumio/miniconda3](https://hub.docker.com/r/continuumio/miniconda3)
@@ -144,3 +175,26 @@ docker run -i -t -p 8888:8888 continuumio/miniconda3 /bin/bash -c "/opt/conda/bi
 * [rocker](https://hub.docker.com/u/rocker)
 ([source](https://github.com/rocker-org/rocker))
     * r-base, r-tidyverse, rocker/tidyverse:3.3.1
+
+* [sagemath](https://hub.docker.com/r/sagemath/sagemath/)
+([source](https://github.com/sagemath/sage/blob/master/docker/Dockerfile))
+
+```
+docker run -p 8888:8888 sagemath/sagemath:latest sage-jupyter
+```
+
+The URL that `sage-jupyter` returns is rough, e.g.
+`http://0efce28e9a34:8888/?token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b&token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b`.
+First, you have to update the address to be `http://localhost:8888`. Second, it
+repeats the same token twice. This still works though.
+
+Note that `sage-jupyter` is a variable that is controlled by
+[`entrypoint.sh`](https://github.com/sagemath/sage/blob/master/docker/entrypoint.sh).
+It executes `sage -n jupyter --no-browser --ip='0.0.0.0' --port=8888`.
+
+
+
+## Tutorials
+
+* [Docker for the busy researcher](http://erick.matsen.org/2018/04/19/docker.html)
+* [Using Docker for Reproducible Research](http://tiffanytimbers.com/Using-docker-for-reproducible-research/)
