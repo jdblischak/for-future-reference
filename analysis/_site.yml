@@ -1,22 +1,26 @@
-name: "for-future-reference"
+name: for-future-reference
 output_dir: ../docs
 navbar:
-  title: "For future reference"
+  title: For future reference
   left:
   - text: Home
     href: index.html
-  - text: "Topics"
+  - text: Topics
     menu:
-      - text: "Mathematics"
-        href: math.html
-      - text: "Programming"
-        href: programming.html
-      - text: "Software development"
-        href: software.html
+    - text: Mathematics
+      href: math.html
+    - text: Programming
+      href: programming.html
+    - text: Software development
+      href: software.html
   - text: About
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/jdblischak/for-future-reference
 output:
   workflowr::wflow_html:
     toc: yes
