@@ -24,6 +24,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -72,9 +74,7 @@ h6 {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -193,8 +193,6 @@ $(document).ready(function () {
 });
 </script>
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
 
 <style type="text/css">
@@ -268,6 +266,15 @@ $(document).ready(function () {
 
 
 
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
@@ -294,6 +301,12 @@ $(document).ready(function () {
     <li>
       <a href="math.html">Mathematics</a>
     </li>
+    <li>
+      <a href="programming.html">Programming</a>
+    </li>
+    <li>
+      <a href="software.html">Software development</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -304,7 +317,13 @@ $(document).ready(function () {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jdblischak/for-future-reference">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -322,8 +341,8 @@ div.section {
 
 
 <h1 class="title toc-ignore">Matrix algebra</h1>
-<h4 class="author"><em>John Blischak</em></h4>
-<h4 class="date"><em>2019-01-25</em></h4>
+<h4 class="author">John Blischak</h4>
+<h4 class="date">2019-01-25</h4>
 
 </div>
 
@@ -353,14 +372,17 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-01-25
+<strong>Last updated:</strong> 2019-03-19
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>for-future-reference/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
 <p>
 This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.1.1.9001). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.2.0.9000). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -417,10 +439,22 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree7bbe37cbca445006c8b60ec2047f5ac6a9059dbdtargetblank7bbe37ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/7bbe37cbca445006c8b60ec2047f5ac6a9059dbd" target="_blank">7bbe37c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree7bbe37cbca445006c8b60ec2047f5ac6a9059dbdtargetblank7bbe37ca" class="panel-collapse collapse">
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree0f5789dfb31dfd225e819da48bd5d2c7775722f3targetblank0f5789da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/0f5789dfb31dfd225e819da48bd5d2c7775722f3" target="_blank">0f5789d</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree0f5789dfb31dfd225e819da48bd5d2c7775722f3targetblank0f5789da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -467,6 +501,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/34428dae993e6910b35d9328a1eb2eda2b8c9739/docs/linalg-matrix.html" target="_blank">34428da</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-01-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -558,9 +609,9 @@ C &lt;- matrix(c(-5, 3, 9,
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.2 (2018-12-20)
+<pre><code>R version 3.5.3 (2019-03-11)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 18.04.1 LTS
+Running under: Ubuntu 18.04.2 LTS
 
 Matrix products: default
 BLAS: /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
@@ -578,13 +629,13 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] workflowr_1.1.1.9001 Rcpp_1.0.0           digest_0.6.18       
- [4] rprojroot_1.2        backports_1.1.3      git2r_0.24.0        
- [7] magrittr_1.5         evaluate_0.12        stringi_1.2.4       
-[10] fs_1.2.6             whisker_0.3-2        rmarkdown_1.11      
-[13] tools_3.5.2          stringr_1.3.1        glue_1.3.0          
-[16] xfun_0.4             yaml_2.2.0           compiler_3.5.2      
-[19] htmltools_0.3.6      knitr_1.21          </code></pre>
+ [1] workflowr_1.2.0.9000 Rcpp_1.0.1           digest_0.6.18       
+ [4] rprojroot_1.2        backports_1.1.3      git2r_0.25.1        
+ [7] magrittr_1.5         evaluate_0.13        stringi_1.4.3       
+[10] fs_1.2.6             whisker_0.3-2        rmarkdown_1.12      
+[13] tools_3.5.3          stringr_1.4.0        glue_1.3.1          
+[16] xfun_0.5             yaml_2.2.0           compiler_3.5.3      
+[19] htmltools_0.3.6      knitr_1.22          </code></pre>
 </div>
 </div>
 
