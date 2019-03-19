@@ -54,3 +54,55 @@ products of integers are integers. Thus $n^{2} = 3k + 1$.
 sums and products of integers are integers. Thus $n^{2} = 3k + 1$.
 
 Therefore, in all cases $n^{2} = 3k$ or $n^{2} = 3k + 1$. $\square$
+
+## Logarithms
+
+The following proof is from *Discrete Mathemtics with Applications, 4th Edition*
+by Susanna S. Epp (p. 407).
+
+> For any positive real numbers $b$, $c$, and $x$, with $b \neq 1$ and $c \neq 1$,
+>
+> $$ log_{c}x = \frac{log_{b}x}{log_{b}c}.$$
+
+**Proof:** Suppose positive real numbers $b$, $c$, and $x$, with $b \neq 1$ and
+$c \neq 1$. Let
+
+$$
+\begin{align*}
+  u = log_{b}c \>\>\>\> (1) \\
+  v = log_{c}x \>\>\>\> (2) \\
+  w = log_{b}x \>\>\>\> (3)
+\end{align*}
+$$
+
+Then, by definition of logarithm,
+
+$$
+\begin{align*}
+  c = b^u \>\>\>\> (1') \\
+  x = c^v \>\>\>\> (2') \\
+  x = b^w \>\>\>\> (3')
+\end{align*}
+$$
+Substituting (1') into (2') and using one of the laws of exponents,
+$(b^{u})^v = b^{uv}$, gives
+
+$$ x = c^v = (b^u)^v = b^{uv} $$
+
+But by (3'), $x = b^w$ also. Hence
+
+$$ b^{uv} = b^{w}, $$
+
+and so by the one-to-oneness of the exponential function
+(if $b^u = b^v$ then $u = v$),
+
+$$ uv = w. $$
+
+Substituting from (1), (2), and (3) gives that
+
+$$ (log_{b}c)(log_{c}x) = log_{b}x. $$
+
+And dividing both sides by $log_{b}c$ (which is nonzero because $c \neq 1$)
+results in
+
+$$ log_{c}x = \frac{log_{b}x}{log_{b}c}. \>\>\>\>  \square$$
