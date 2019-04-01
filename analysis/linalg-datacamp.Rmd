@@ -86,3 +86,42 @@ A %*% E$vectors[, 2]
 E$values[2] * E$vectors[, 2]
 ```
 
+Principal Component Analysis
+
+```{r}
+combine_url <- "https://assets.datacamp.com/production/repositories/2654/datasets/760dae913f682ba6b2758207280138662ddedc0d/DataCampCombine.csv"
+combine <- read.csv(combine_url)
+dim(combine)
+head(combine)
+```
+
+```{r}
+x <- as.matrix(combine[, 5:12])
+# Subtract the column means
+(column_means <- apply(x, 2, mean))
+x <- sweep(x, 2, column_means)
+apply(x, 2, mean)
+# Calculate variance-covariance matrix
+x_cov <- t(x) %*% x / (nrow(x) - 1)
+dim(x_cov)
+x_cov
+# The diagonal entries are the variance of the original columns
+diag(x_cov)
+apply(x, 2, var)
+# The non-diagonal entries are the covariance between the two columns
+cov(x[, 1], x[, 5])
+x_cov[1, 5]
+x_cov[5, 1]
+# Calculate eigenvalues of covariance matrix
+x_eig <- eigen(x_cov)
+x_eig
+# Percentage of variance explained by each principal component
+barplot(x_eig$values / sum(x_eig$values) * 100)
+```
+
+```{r}
+# Using prcomp (and also scaling the columns)
+scaled <- scale(combine[5:12])
+pca <- prcomp(scaled)
+summary(pca)
+```
