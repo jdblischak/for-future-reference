@@ -363,7 +363,7 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-03-31
+<strong>Last updated:</strong> 2019-04-01
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -442,10 +442,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreec2ae4e5f09d1836202b5279830f254d44d8b479atargetblankc2ae4e5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/c2ae4e5f09d1836202b5279830f254d44d8b479a" target="_blank">c2ae4e5</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree4a3a31753a65a9ea3963ebb28f58bfa755e63cc8targetblank4a3a317a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/4a3a31753a65a9ea3963ebb28f58bfa755e63cc8" target="_blank">4a3a317</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreec2ae4e5f09d1836202b5279830f254d44d8b479atargetblankc2ae4e5a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree4a3a31753a65a9ea3963ebb28f58bfa755e63cc8targetblank4a3a317a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -454,6 +454,7 @@ Great! You are using Git for version control. Tracking code development and conn
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    docs/figure/
 
 </code></pre>
 <p>
@@ -492,6 +493,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jdblischak/for-future-reference/blob/4a3a31753a65a9ea3963ebb28f58bfa755e63cc8/analysis/linalg-datacamp.Rmd" target="_blank">4a3a317</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-04-01
+</td>
+<td>
+Add PCA examples.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/a35299b1724e9a1ff50974a7b8226ca194a42907/docs/linalg-datacamp.html" target="_blank">a35299b</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-03-31
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -623,6 +658,130 @@ $vectors
 [2,]    0</code></pre>
 <pre class="r"><code>E$values[2] * E$vectors[, 2]</code></pre>
 <pre><code>[1] 0 0</code></pre>
+<p>Principal Component Analysis</p>
+<pre class="r"><code>combine_url &lt;- &quot;https://assets.datacamp.com/production/repositories/2654/datasets/760dae913f682ba6b2758207280138662ddedc0d/DataCampCombine.csv&quot;
+combine &lt;- read.csv(combine_url)
+dim(combine)</code></pre>
+<pre><code>[1] 2885   13</code></pre>
+<pre class="r"><code>head(combine)</code></pre>
+<pre><code>             player position       school year height weight forty
+1   Jaire Alexander       CB   Louisville 2018     71    192  4.38
+2       Brian Allen        C Michigan St. 2018     73    298  5.34
+3      Mark Andrews       TE     Oklahoma 2018     77    256  4.67
+4         Troy Apke        S     Penn St. 2018     74    198  4.34
+5 Dorance Armstrong     EDGE       Kansas 2018     76    257  4.87
+6         Ade Aruna       DE       Tulane 2018     78    262  4.60
+  vertical bench broad_jump three_cone shuttle
+1     35.0    14        127       6.71    3.98
+2     26.5    27         99       7.81    4.71
+3     31.0    17        113       7.34    4.38
+4     41.0    16        131       6.56    4.03
+5     30.0    20        118       7.12    4.23
+6     38.5    18        128       7.53    4.48
+                                      drafted
+1  Green Bay Packers / 1st / 18th pick / 2018
+2  Los Angeles Rams / 4th / 111th pick / 2018
+3   Baltimore Ravens / 3rd / 86th pick / 2018
+4                                            
+5                                            
+6 Minnesota Vikings / 6th / 218th pick / 2018</code></pre>
+<pre class="r"><code>x &lt;- as.matrix(combine[, 5:12])
+# Subtract the column means
+(column_means &lt;- apply(x, 2, mean))</code></pre>
+<pre><code>    height     weight      forty   vertical      bench broad_jump 
+ 73.992721 252.087348   4.811584  32.598267  21.091854 113.190295 
+three_cone    shuttle 
+  7.305719   4.408548 </code></pre>
+<pre class="r"><code>x &lt;- sweep(x, 2, column_means)
+apply(x, 2, mean)</code></pre>
+<pre><code>       height        weight         forty      vertical         bench 
+-1.572879e-15 -9.502468e-15  3.977476e-16 -1.041735e-16  1.217401e-15 
+   broad_jump    three_cone       shuttle 
+ 4.524137e-15  2.807089e-16 -2.469472e-17 </code></pre>
+<pre class="r"><code># Calculate variance-covariance matrix
+x_cov &lt;- t(x) %*% x / (nrow(x) - 1)
+dim(x_cov)</code></pre>
+<pre><code>[1] 8 8</code></pre>
+<pre class="r"><code>x_cov</code></pre>
+<pre><code>                height      weight       forty    vertical       bench
+height       7.1597944   90.788084  0.52676257   -5.065512   6.2780614
+weight      90.7880840 2105.176834 13.04832553 -132.887401 188.5644427
+forty        0.5267626   13.048326  0.10318906   -1.034265   0.9549273
+vertical    -5.0655119 -132.887401 -1.03426459   18.232972  -8.7243553
+bench        6.2780614  188.564443  0.95492726   -8.724355  40.8989801
+broad_jump -11.2472274 -330.417460 -2.55786742   33.083582 -24.1124924
+three_cone   0.5955444   15.944407  0.11523591   -1.245058   1.2152061
+shuttle      0.3912377    9.644035  0.06894544   -0.811669   0.6913887
+            broad_jump  three_cone     shuttle
+height      -11.247227  0.59554442  0.39123769
+weight     -330.417460 15.94440664  9.64403467
+forty        -2.557867  0.11523591  0.06894544
+vertical     33.083582 -1.24505770 -0.81166895
+bench       -24.112492  1.21520610  0.69138865
+broad_jump   90.079934 -3.11504850 -1.89762575
+three_cone   -3.115048  0.18612283  0.09866407
+shuttle      -1.897626  0.09866407  0.07283010</code></pre>
+<pre class="r"><code># The diagonal entries are the variance of the original columns
+diag(x_cov)</code></pre>
+<pre><code>      height       weight        forty     vertical        bench 
+   7.1597944 2105.1768336    0.1031891   18.2329720   40.8989801 
+  broad_jump   three_cone      shuttle 
+  90.0799335    0.1861228    0.0728301 </code></pre>
+<pre class="r"><code>apply(x, 2, var)</code></pre>
+<pre><code>      height       weight        forty     vertical        bench 
+   7.1597944 2105.1768336    0.1031891   18.2329720   40.8989801 
+  broad_jump   three_cone      shuttle 
+  90.0799335    0.1861228    0.0728301 </code></pre>
+<pre class="r"><code># The non-diagonal entries are the covariance between the two columns
+cov(x[, 1], x[, 5])</code></pre>
+<pre><code>[1] 6.278061</code></pre>
+<pre class="r"><code>x_cov[1, 5]</code></pre>
+<pre><code>[1] 6.278061</code></pre>
+<pre class="r"><code>x_cov[5, 1]</code></pre>
+<pre><code>[1] 6.278061</code></pre>
+<pre class="r"><code># Calculate eigenvalues of covariance matrix
+x_eig &lt;- eigen(x_cov)
+x_eig</code></pre>
+<pre><code>eigen() decomposition
+$values
+[1] 2.187628e+03 4.403246e+01 2.219205e+01 5.267129e+00 2.699702e+00
+[6] 6.317016e-02 1.480866e-02 1.307283e-02
+
+$vectors
+             [,1]         [,2]          [,3]          [,4]         [,5]
+[1,] -0.042047079 -0.061885367  0.1454490039 -0.1040556410  0.980792060
+[2,] -0.980711529 -0.130912788  0.1270100265  0.0193388930 -0.066908382
+[3,] -0.006112061  0.012525260  0.0025260713 -0.0021291637 -0.004096693
+[4,]  0.062926466 -0.333556369  0.0398922845  0.9366594549  0.074901137
+[5,] -0.088291423 -0.313533433 -0.9363461471 -0.0745692157  0.107188391
+[6,]  0.156742686 -0.876925849  0.2904565302 -0.3252903706 -0.126494599
+[7,] -0.007468520  0.014691994  0.0009057581  0.0003320888 -0.020902644
+[8,] -0.004518826  0.009863931  0.0023111814 -0.0094052914 -0.004010629
+             [,6]          [,7]          [,8]
+[1,] -0.020679696 -6.155636e-03  0.0008055445
+[2,]  0.008423587  6.988341e-04  0.0036087841
+[3,] -0.152469227 -2.539868e-01 -0.9549983725
+[4,] -0.012214516  7.045063e-03 -0.0070051256
+[5,] -0.009167322 -8.604309e-05 -0.0048308793
+[6,] -0.013753112 -2.187651e-03 -0.0076907609
+[7,] -0.894560357 -3.743559e-01  0.2427137770
+[8,] -0.419039274  8.917710e-01 -0.1700673446</code></pre>
+<pre class="r"><code># Percentage of variance explained by each principal component
+barplot(x_eig$values / sum(x_eig$values) * 100)</code></pre>
+<p><img src="figure/linalg-datacamp.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># Using prcomp (and also scaling the columns)
+scaled &lt;- scale(combine[5:12])
+pca &lt;- prcomp(scaled)
+summary(pca)</code></pre>
+<pre><code>Importance of components:
+                          PC1    PC2     PC3     PC4     PC5     PC6
+Standard deviation     2.3679 0.9228 0.78904 0.61348 0.46811 0.37178
+Proportion of Variance 0.7009 0.1064 0.07782 0.04704 0.02739 0.01728
+Cumulative Proportion  0.7009 0.8073 0.88514 0.93218 0.95957 0.97685
+                           PC7     PC8
+Standard deviation     0.34834 0.25266
+Proportion of Variance 0.01517 0.00798
+Cumulative Proportion  0.99202 1.00000</code></pre>
 <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
