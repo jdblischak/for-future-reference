@@ -12,3 +12,4 @@ output:
 ## Linear algebra
 
 * [Matrix algebra](linalg-matrix.html)
+* [Linear Algebra for Data Science with R](linalg-datacamp.html)

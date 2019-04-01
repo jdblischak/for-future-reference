@@ -1,0 +1,88 @@
+---
+title: "Notes from Linear Algebra for Data Science with R"
+output: html_document
+---
+
+Notes from the DataCamp course
+[Linear Algebra for Data Science with R][datacamp].
+
+[datacamp]: https://campus.datacamp.com/courses/linear-algebra-for-data-science-in-r/
+
+```{r}
+v <- c(10, 10)
+v
+```
+
+Increase x-component:
+
+```{r}
+A <- matrix(c(5, 0, 0, 1), nrow = 2, byrow = TRUE)
+A
+A %*% v
+```
+
+Decrease y-component:
+
+```{r}
+A <- matrix(c(1, 0, 0, 1/5), nrow = 2, byrow = TRUE)
+A
+A %*% v
+```
+
+Reflect about the x-axis:
+
+```{r}
+A <- matrix(c(1, 0, 0, -1), nrow = 2, byrow = TRUE)
+A
+A %*% v
+```
+
+Reflect about the y-axis:
+
+```{r}
+A <- matrix(c(-1, 0, 0, 1), nrow = 2, byrow = TRUE)
+A
+A %*% v
+```
+
+Identity matrix:
+
+```{r}
+diag(3)
+```
+
+
+Find the inverse with `solve`.
+
+```{r}
+A <- matrix(c(0, 5, -2, 0), nrow = 2, byrow = TRUE)
+A
+solve(A)
+A %*% solve(A)
+solve(A) %*% A
+```
+
+Compute the determinant:
+
+```{r}
+A <- matrix(c(1, 0, 0, 2), nrow = 2, byrow = TRUE)
+A
+det(A)
+A <- matrix(c(1, 0, 2, 0), nrow = 2, byrow = TRUE)
+A
+det(A)
+```
+
+Compute eigenvalues ($\lambda$) and eigenvectors ($\textbf{x}$):
+
+$$ A\textbf{x} = \lambda\textbf{x}$$
+
+```{r}
+A <- cbind(c(1,-1), c(-1,1))
+(E <- eigen(A))
+A %*% E$vectors[, 1]
+E$values[1] * E$vectors[, 1]
+A %*% E$vectors[, 2]
+E$values[2] * E$vectors[, 2]
+```
+
