@@ -1,0 +1,52 @@
+---
+title: "Shiny"
+author: "John Blischak"
+date: "2019-04-11"
+output: workflowr::wflow_html
+---
+
+Some notes on using Shiny from the DataCamp course
+[Building Web Applications in R with Shiny](https://www.datacamp.com/courses/building-web-applications-in-r-with-shiny):
+
+* To require that an input not be `NULL`, put `req(input$n)` inside of the
+reactive function. This is especially useful to avoid throwing an error before
+the user has a chance to enter a value.
+
+* To select multiple values from a potentially long list, set `multiple = TRUE`
+for the UI function `selectInput()`. The default `selectize = TRUE` will show
+potential values that update as the user types.
+
+* To optionally display output, put `if (input$id)` inside of a render function.
+To include UI as well, use `conditionalPanel()`.
+
+* To obtain information on points from a plot, you can use:
+    * UI: `plotOutput(brush = "id")` -> Server: `brushedPoints(df, brush = input$id)`
+    * UI: `plotOutput(hover = "id")` -> Server: `nearPoints(df, coordinfo = input$id)`
+
+* Options for rendering text output:
+    * `textOutput()` (div tag) - use for normal text
+    * `verbatimTextOutput()` (pre tag) - use to format as code
+
+* In UI, refer to IDs as strings. Order matters. In Server, refer to IDs as
+elements of list. Order doesn't matter.
+
+* Download data - UI: `downloadButton()`, Server: `downloadHandler()`
+
+* Output arbitrary HTML that includes reactive components - UI: `outputUI()`,
+Server: `renderUI()`
+
+* To view reactlog, run `options(shiny.reactlog = TRUE)` and click Ctrl+F3 while
+Shiny app is open.
+
+* observer versus reactive:
+    * `observe()` - automatically perform side effect
+    * `reactive()` - automatically recalculate value
+    * `observeEvent()` - perform side effect when triggered
+    * `eventReactive()` - recalculate value when triggered
+
+* shinythemes:
+    * Add `themeSelector()` widget to UI
+    * Decide on theme with `ui <- fluidPage(theme = shinytheme("cerulean"),`
+
+* Can use individual HTML tags such as `p()`, `br()`, etc. or directly write
+HTML with `HTML()`.

@@ -7,3 +7,4 @@ output:
 
 
 * [Bash](bash.html)
+* [Shiny](shiny.html)
