@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="John Blischak" />
 
+<meta name="date" content="2019-04-11" />
 
-<title>Programming</title>
+<title>Shiny</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -338,7 +340,9 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Programming</h1>
+<h1 class="title toc-ignore">Shiny</h1>
+<h4 class="author">John Blischak</h4>
+<h4 class="date">2019-04-11</h4>
 
 </div>
 
@@ -449,7 +453,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/5d6218b977c9d4a901be17dfdbfb3e23279c98e1/analysis/programming.Rmd" target="_blank">5d6218b</a>
+<a href="https://github.com/jdblischak/for-future-reference/blob/5d6218b977c9d4a901be17dfdbfb3e23279c98e1/analysis/shiny.Rmd" target="_blank">5d6218b</a>
 </td>
 <td>
 John Blischak
@@ -461,57 +465,6 @@ John Blischak
 Add notes on Shiny.
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/0f8b5831293855b52a80a4508f64363e97023a2f/docs/programming.html" target="_blank">0f8b583</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-03-19
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/65fb12f31c7ca0aa6fa2a29dcdfaca9f1c08d6a9/docs/programming.html" target="_blank">65fb12f</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-29
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/695323a45b6b46563f7afb3ae6f9caca793fe12b/analysis/programming.Rmd" target="_blank">695323a</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-29
-</td>
-<td>
-wflow_publish(c(&quot;analysis/_site.yml“,”analysis/bash.Rmd“,”analysis/index.Rmd&quot;,
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -519,9 +472,38 @@ wflow_publish(c(&quot;analysis/_site.yml“,”analysis/bash.Rmd“,”analysis/
 </div>
 </div>
 </div>
+<p>Some notes on using Shiny from the DataCamp course <a href="https://www.datacamp.com/courses/building-web-applications-in-r-with-shiny">Building Web Applications in R with Shiny</a>:</p>
 <ul>
-<li><a href="bash.html">Bash</a></li>
-<li><a href="shiny.html">Shiny</a></li>
+<li><p>To require that an input not be <code>NULL</code>, put <code>req(input$n)</code> inside of the reactive function. This is especially useful to avoid throwing an error before the user has a chance to enter a value.</p></li>
+<li><p>To select multiple values from a potentially long list, set <code>multiple = TRUE</code> for the UI function <code>selectInput()</code>. The default <code>selectize = TRUE</code> will show potential values that update as the user types.</p></li>
+<li><p>To optionally display output, put <code>if (input$id)</code> inside of a render function. To include UI as well, use <code>conditionalPanel()</code>.</p></li>
+<li>To obtain information on points from a plot, you can use:
+<ul>
+<li>UI: <code>plotOutput(brush = &quot;id&quot;)</code> -&gt; Server: <code>brushedPoints(df, brush = input$id)</code></li>
+<li>UI: <code>plotOutput(hover = &quot;id&quot;)</code> -&gt; Server: <code>nearPoints(df, coordinfo = input$id)</code></li>
+</ul></li>
+<li>Options for rendering text output:
+<ul>
+<li><code>textOutput()</code> (div tag) - use for normal text</li>
+<li><code>verbatimTextOutput()</code> (pre tag) - use to format as code</li>
+</ul></li>
+<li><p>In UI, refer to IDs as strings. Order matters. In Server, refer to IDs as elements of list. Order doesn’t matter.</p></li>
+<li><p>Download data - UI: <code>downloadButton()</code>, Server: <code>downloadHandler()</code></p></li>
+<li><p>Output arbitrary HTML that includes reactive components - UI: <code>outputUI()</code>, Server: <code>renderUI()</code></p></li>
+<li><p>To view reactlog, run <code>options(shiny.reactlog = TRUE)</code> and click Ctrl+F3 while Shiny app is open.</p></li>
+<li>observer versus reactive:
+<ul>
+<li><code>observe()</code> - automatically perform side effect</li>
+<li><code>reactive()</code> - automatically recalculate value</li>
+<li><code>observeEvent()</code> - perform side effect when triggered</li>
+<li><code>eventReactive()</code> - recalculate value when triggered</li>
+</ul></li>
+<li>shinythemes:
+<ul>
+<li>Add <code>themeSelector()</code> widget to UI</li>
+<li>Decide on theme with <code>ui &lt;- fluidPage(theme = shinytheme(&quot;cerulean&quot;),</code></li>
+</ul></li>
+<li><p>Can use individual HTML tags such as <code>p()</code>, <code>br()</code>, etc. or directly write HTML with <code>HTML()</code>.</p></li>
 </ul>
 
 
