@@ -352,6 +352,7 @@ div.section {
 <div id="TOC">
 <ul>
 <li><a href="#equation-a.7">Equation A.7</a></li>
+<li><a href="#equation-a.8">Equation A.8</a></li>
 </ul>
 </div>
 
@@ -466,10 +467,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreee2719a5b83592d05d7afc1bc71e569f5120ecfa2targetblanke2719a5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/e2719a5b83592d05d7afc1bc71e569f5120ecfa2" target="_blank">e2719a5</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree7ab13db39c0d072865c7a1881ef262673c869312targetblank7ab13dba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/7ab13db39c0d072865c7a1881ef262673c869312" target="_blank">7ab13db</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreee2719a5b83592d05d7afc1bc71e569f5120ecfa2targetblanke2719a5a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree7ab13db39c0d072865c7a1881ef262673c869312targetblank7ab13dba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -521,6 +522,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/jdblischak/for-future-reference/blob/7ab13db39c0d072865c7a1881ef262673c869312/analysis/summation.Rmd" target="_blank">7ab13db</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-05-30
+</td>
+<td>
+Add another summation property.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/95b7acdd035355f2b0bfc6011b38855b603f8025/docs/summation.html" target="_blank">95b7acd</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-05-30
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/jdblischak/for-future-reference/blob/e2719a5b83592d05d7afc1bc71e569f5120ecfa2/analysis/summation.Rmd" target="_blank">e2719a5</a>
 </td>
 <td>
@@ -559,19 +594,54 @@ xbar &lt;- mean(x)</code></pre>
 <pre class="r"><code>plot(x)
 abline(h = xbar, col = &quot;red&quot;, lty = &quot;dashed&quot;)
 for (i in 1:n) lines(x = c(i, i), y = c(x[i], xbar), col = &quot;blue&quot;)</code></pre>
-<p><img src="figure/summation.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/summation.Rmd/plot-a7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Third, the algebraic proof from the book:</p>
 <p><span class="math display">\[
 \begin{align*}
-\sum_{i=1}^{n} (x_i - \bar{x})^2 = \\
-\sum_{i=1}^{n} (x_i^2 - 2x_i\bar{x} + \bar{x}^2) = \\
-\sum_{i=1}^{n} x_i^2 - 2\bar{x}\sum_{i=1}^{n} x_i + n(\bar{x})^2 = \\
-\sum_{i=1}^{n} x_i^2 - 2n(\bar{x})^2 + n(\bar{x})^2 = \\
-\sum_{i=1}^{n} x_i^2 - n(\bar{x})^2 
+\sum_{i=1}^{n} (x_i - \bar{x})^2 \\
+= \sum_{i=1}^{n} (x_i^2 - 2x_i\bar{x} + \bar{x}^2) \\
+= \sum_{i=1}^{n} x_i^2 - 2\bar{x}\sum_{i=1}^{n} x_i + n(\bar{x})^2 \\
+= \sum_{i=1}^{n} x_i^2 - 2n(\bar{x})^2 + n(\bar{x})^2 \\
+= \sum_{i=1}^{n} x_i^2 - n(\bar{x})^2 
 \end{align*}
 \]</span></p>
 <p>The key step for me is the substitution of <span class="math inline">\(n\bar{x}\)</span> for <span class="math inline">\(\sum_{i=1}^{n} x_i\)</span>. This relationship is obtained by rearranging the equation for the mean:</p>
 <p><span class="math display">\[ \bar{x} = (1/n) \sum_{i=1}^{n} x_i\]</span></p>
+</div>
+<div id="equation-a.8" class="section level2">
+<h2>Equation A.8</h2>
+<p><span class="math display">\[
+\begin{align*}
+\sum_{i=1}^{n} (x_i - \bar{x}) (y_i - \bar{y}) \\
+= \sum_{i=1}^{n} x_i (y_i - \bar{y}) \\
+= \sum_{i=1}^{n} (x_i - \bar{x}) y_i \\
+= \sum_{i=1}^{n} x_i y_i - n(\bar{x} \cdot \bar{y})
+\end{align*}
+\]</span></p>
+<p>First, confirming this computationally with an example.</p>
+<pre class="r"><code>n &lt;- 10
+x &lt;- rpois(n, lambda = 5)
+y &lt;- rpois(n, lambda = 5)
+xbar &lt;- mean(x)
+ybar &lt;- mean(y)</code></pre>
+<pre class="r"><code>sum((x - xbar) * (y - ybar))</code></pre>
+<pre><code>[1] 43.8</code></pre>
+<pre class="r"><code>sum(x * (y - ybar))</code></pre>
+<pre><code>[1] 43.8</code></pre>
+<pre class="r"><code>sum((x - xbar) * y)</code></pre>
+<pre><code>[1] 43.8</code></pre>
+<pre class="r"><code>sum(x * y) - n * (xbar * ybar)</code></pre>
+<pre><code>[1] 43.8</code></pre>
+<p>Second, visually exploring this relationship.</p>
+<pre class="r"><code>op &lt;- par(mfrow = c(1, 2))
+plot(x, y)
+abline(h = xbar, col = &quot;red&quot;, lty = &quot;dashed&quot;)
+for (i in 1:n) lines(x = c(x[i], x[i]), y = c(y[i], xbar), col = &quot;blue&quot;)
+plot(x, y)
+abline(v = ybar, col = &quot;red&quot;, lty = &quot;dashed&quot;)
+for (i in 1:n) lines(x = c(x[i], ybar), y = c(y[i], y[i]), col = &quot;purple&quot;)</code></pre>
+<p><img src="figure/summation.Rmd/plot-a8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>par(op)</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
