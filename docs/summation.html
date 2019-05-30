@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="John Blischak" />
 
+<meta name="date" content="2019-05-30" />
 
-<title>Home</title>
+<title>Properties of the summation operator</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -341,10 +343,17 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Properties of the summation operator</h1>
+<h4 class="author">John Blischak</h4>
+<h4 class="date">2019-05-30</h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#equation-a.7">Equation A.7</a></li>
+</ul>
+</div>
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
@@ -369,7 +378,7 @@ div.section {
 <strong>Last updated:</strong> 2019-05-30
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>for-future-reference/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -397,6 +406,66 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20190125code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20190125)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20190125code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20190125)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
 <a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreee2719a5b83592d05d7afc1bc71e569f5120ecfa2targetblanke2719a5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/e2719a5b83592d05d7afc1bc71e569f5120ecfa2" target="_blank">e2719a5</a> </a>
 </p>
 </div>
@@ -409,9 +478,6 @@ Great! You are using Git for version control. Tracking code development and conn
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  docs/figure/summation.Rmd/
 
 </code></pre>
 <p>
@@ -455,7 +521,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/e2719a5b83592d05d7afc1bc71e569f5120ecfa2/analysis/index.Rmd" target="_blank">e2719a5</a>
+<a href="https://github.com/jdblischak/for-future-reference/blob/e2719a5b83592d05d7afc1bc71e569f5120ecfa2/analysis/summation.Rmd" target="_blank">e2719a5</a>
 </td>
 <td>
 John Blischak
@@ -467,159 +533,6 @@ John Blischak
 Explore property of the summation operator.
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/0f8b5831293855b52a80a4508f64363e97023a2f/docs/index.html" target="_blank">0f8b583</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-03-19
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/65fb12f31c7ca0aa6fa2a29dcdfaca9f1c08d6a9/docs/index.html" target="_blank">65fb12f</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-29
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/695323a45b6b46563f7afb3ae6f9caca793fe12b/analysis/index.Rmd" target="_blank">695323a</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-29
-</td>
-<td>
-wflow_publish(c(&quot;analysis/_site.yml“,”analysis/bash.Rmd“,”analysis/index.Rmd&quot;,
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/84cd2a16cdcc30ecac4d1f1ecb6a20f1fe208256/docs/index.html" target="_blank">84cd2a1</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-28
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/354987240d308569b300ab49088c16aff5b122bc/docs/index.html" target="_blank">3549872</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-25
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/d5bcc6fad5a8fee3c91c14eb5c391b0357cbfa6e/analysis/index.Rmd" target="_blank">d5bcc6f</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-25
-</td>
-<td>
-Add style and navigation.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/61a43bffb0f2c68002db5c6877f569f9322a6178/docs/index.html" target="_blank">61a43bf</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-25
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/3a31d1efec850a6f2964e808d69e21076b19ddd7/analysis/index.Rmd" target="_blank">3a31d1e</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-25
-</td>
-<td>
-Add project description and license. And change theme.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/1f8a2cd3a5b5f1909396971ad3edba52a56192cd/analysis/index.Rmd" target="_blank">1f8a2cd</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-25
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -627,14 +540,75 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>My personal notes on miscellaneous technical topics.</p>
-<p>Topics:</p>
-<ul>
-<li><a href="math.html">Mathematics</a></li>
-<li><a href="programming.html">Programming</a></li>
-<li><a href="software.html">Software development</a></li>
-<li><a href="stats.html">Statistics</a></li>
-</ul>
+<p>Exploring some of the properties of the summation operator described in Appendix A of Introductory Econometrics by Jeffrey Woolridge.</p>
+<div id="equation-a.7" class="section level2">
+<h2>Equation A.7</h2>
+<blockquote>
+<p>The sum of squared deviations is the sum of the squared <span class="math inline">\(x_i\)</span> minus <span class="math inline">\(n\)</span> times the square of <span class="math inline">\(\bar{x}:\)</span></p>
+</blockquote>
+<p><span class="math display">\[ \sum_{i=1}^{n} (x_i - \bar{x})^2 = \sum_{i=1}^{n} x_i^2 - n(\bar{x})^2 \]</span></p>
+<p>First, confirming this computationally with an example.</p>
+<pre class="r"><code>n &lt;- 10
+x &lt;- rpois(n, lambda = 5)
+xbar &lt;- mean(x)</code></pre>
+<pre class="r"><code>sum((x - xbar)^2)</code></pre>
+<pre><code>[1] 24.1</code></pre>
+<pre class="r"><code>sum(x^2) - n * xbar^2</code></pre>
+<pre><code>[1] 24.1</code></pre>
+<p>Second, visually exploring this relationship.</p>
+<pre class="r"><code>plot(x)
+abline(h = xbar, col = &quot;red&quot;, lty = &quot;dashed&quot;)
+for (i in 1:n) lines(x = c(i, i), y = c(x[i], xbar), col = &quot;blue&quot;)</code></pre>
+<p><img src="figure/summation.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Third, the algebraic proof from the book:</p>
+<p><span class="math display">\[
+\begin{align*}
+\sum_{i=1}^{n} (x_i - \bar{x})^2 = \\
+\sum_{i=1}^{n} (x_i^2 - 2x_i\bar{x} + \bar{x}^2) = \\
+\sum_{i=1}^{n} x_i^2 - 2\bar{x}\sum_{i=1}^{n} x_i + n(\bar{x})^2 = \\
+\sum_{i=1}^{n} x_i^2 - 2n(\bar{x})^2 + n(\bar{x})^2 = \\
+\sum_{i=1}^{n} x_i^2 - n(\bar{x})^2 
+\end{align*}
+\]</span></p>
+<p>The key step for me is the substitution of <span class="math inline">\(n\bar{x}\)</span> for <span class="math inline">\(\sum_{i=1}^{n} x_i\)</span>. This relationship is obtained by rearranging the equation for the mean:</p>
+<p><span class="math display">\[ \bar{x} = (1/n) \sum_{i=1}^{n} x_i\]</span></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.0 (2019-04-26)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 18.04.2 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
+LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] workflowr_1.3.0.9000 Rcpp_1.0.1           digest_0.6.19       
+ [4] rprojroot_1.2        backports_1.1.4      git2r_0.25.2        
+ [7] magrittr_1.5         evaluate_0.13        stringi_1.4.3       
+[10] fs_1.3.1             whisker_0.3-2        rmarkdown_1.13      
+[13] tools_3.6.0          stringr_1.4.0        glue_1.3.1          
+[16] xfun_0.7             yaml_2.2.0           compiler_3.6.0      
+[19] htmltools_0.3.6      knitr_1.23          </code></pre>
+</div>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
