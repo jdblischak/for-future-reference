@@ -13,6 +13,8 @@ navbar:
       href: programming.html
     - text: Software development
       href: software.html
+    - text: Statistics
+      href: stats.html
   - text: About
     href: about.html
   - text: License

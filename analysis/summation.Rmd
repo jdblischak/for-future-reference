@@ -1,0 +1,55 @@
+---
+title: "Properties of the summation operator"
+author: "John Blischak"
+date: "2019-05-30"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+Exploring some of the properties of the summation operator described in Appendix
+A of Introductory Econometrics by Jeffrey Woolridge.
+
+## Equation A.7
+
+> The sum of squared deviations is the sum of the squared $x_i$ minus $n$ times
+the square of $\bar{x}:$
+
+$$ \sum_{i=1}^{n} (x_i - \bar{x})^2 = \sum_{i=1}^{n} x_i^2 - n(\bar{x})^2 $$
+
+First, confirming this computationally with an example.
+
+```{r}
+n <- 10
+x <- rpois(n, lambda = 5)
+xbar <- mean(x)
+```
+
+```{r}
+sum((x - xbar)^2)
+sum(x^2) - n * xbar^2
+```
+
+Second, visually exploring this relationship.
+
+```{r}
+plot(x)
+abline(h = xbar, col = "red", lty = "dashed")
+for (i in 1:n) lines(x = c(i, i), y = c(x[i], xbar), col = "blue")
+```
+
+Third, the algebraic proof from the book:
+
+$$
+\begin{align*}
+\sum_{i=1}^{n} (x_i - \bar{x})^2 = \\
+\sum_{i=1}^{n} (x_i^2 - 2x_i\bar{x} + \bar{x}^2) = \\
+\sum_{i=1}^{n} x_i^2 - 2\bar{x}\sum_{i=1}^{n} x_i + n(\bar{x})^2 = \\
+\sum_{i=1}^{n} x_i^2 - 2n(\bar{x})^2 + n(\bar{x})^2 = \\
+\sum_{i=1}^{n} x_i^2 - n(\bar{x})^2 
+\end{align*}
+$$ 
+
+The key step for me is the substitution of $n\bar{x}$ for $\sum_{i=1}^{n} x_i$. This relationship is obtained by rearranging the equation for the mean:
+
+$$ \bar{x} = (1/n) \sum_{i=1}^{n} x_i$$

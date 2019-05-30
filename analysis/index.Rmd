@@ -13,3 +13,4 @@ Topics:
 * [Mathematics](math.html)
 * [Programming](programming.html)
 * [Software development](software.html)
+* [Statistics](stats.html)
