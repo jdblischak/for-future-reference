@@ -46,3 +46,15 @@ ls > /dev/null
 R --version > /dev/null
 hash
 ```
+
+* Set a default value for an environment variable with `${NAME:-"default-value"}`
+([source](https://gist.github.com/arigesher/ec23192b95fffa7c819988b42a4ad5bd#file-trigger_build-bash-L15))
+
+```{bash}
+echo ${ENVAR:-"default"}
+```
+
+```{bash}
+ENVAR="value1"
+echo ${ENVAR:-"default"}
+```
