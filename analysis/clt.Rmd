@@ -1,0 +1,57 @@
+---
+title: "Central Limit Theorem"
+author: "John Blischak"
+date: "2019-07-15"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+Reproducing the demonstration of the Central Limit Theorem in
+_Master 'Metrics_ (p. 39-42).
+
+Consider a Bernoulli random variable with probability of success of $p = 0.8$.
+The sampling distribution of the mean of this distribution approximates a normal
+distribution, especially with increasing sample sizes. This is an example of the
+Central Limit Theorem.
+
+```{r functions}
+# n - number of draws from a Bernoulli random variable with p = 0.8
+randvar <- function(n) rbinom(n, size = 1, prob = 0.8)
+
+# Calculate the t-statistic
+tstat <- function(x) (mean(x) - 0.8) / (sd(x) / sqrt(length(x)))
+
+# Visualize distribution compared to standard normal
+viz <- function(x, ...) {
+  hist(x, freq = FALSE, xlab = "t-statistic", ylab = "Fraction",
+       xlim = c(-4, 4), ...)
+  x <- seq(-4, 4, by = 0.25)
+  y <- dnorm(x)
+  lines(x, y, col = "red", lty = "dashed")
+}
+```
+
+Sample size of 10
+
+```{r n10}
+draws <- replicate(500000, randvar(10))
+tstats <- apply(draws, 2, tstat)
+viz(tstats, main = "n = 10")
+```
+
+Sample size of 40
+
+```{r n40}
+draws <- replicate(500000, randvar(40))
+tstats <- apply(draws, 2, tstat)
+viz(tstats, main = "n = 40")
+```
+
+Sample size of 100
+
+```{r n100}
+draws <- replicate(500000, randvar(100))
+tstats <- apply(draws, 2, tstat)
+viz(tstats, main = "n = 100")
+```

@@ -1,0 +1,46 @@
+---
+title: "Variance"
+author: "John Blischak"
+date: "2019-07-15"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+Exploring some properties of variance.
+
+> The variance of a difference between two statistically independent variables
+is the sum of their variances. (_Mastering 'Metrics_, p. 44)
+
+Using two normal random variables:
+
+```{r}
+a <- rnorm(100, sd = 2)
+var(a)
+b <- rnorm(100, sd = 3)
+var(b)
+var(a - b)
+var(a) + var(b)
+```
+
+Using two Poisson random variables:
+
+```{r}
+a <- rpois(100, lambda = 2)
+var(a)
+b <- rpois(100, lambda = 3)
+var(b)
+var(a - b)
+var(a) + var(b)
+```
+
+Using a normal and a Poisson random variable:
+
+```{r}
+a <- rnorm(100, sd = 2)
+var(a)
+b <- rpois(100, lambda = 3)
+var(b)
+var(a - b)
+var(a) + var(b)
+```
