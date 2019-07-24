@@ -1,0 +1,6 @@
+# linguist overrides
+# https://github.com/github/linguist#overrides
+# Ignore generated website files
+docs/*html linguist-generated=true
+# Ignore vendored website files
+docs/site_libs/* linguist-vendored
