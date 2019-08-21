@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="John Blischak" />
 
+<meta name="date" content="2019-08-20" />
 
-<title>Programming</title>
+<title>SQL</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -333,10 +335,22 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Programming</h1>
+<h1 class="title toc-ignore">SQL</h1>
+<h4 class="author"><em>John Blischak</em></h4>
+<h4 class="date"><em>2019-08-20</em></h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#codecademy">Codecademy</a></li>
+<li><a href="#dataquest">DataQuest</a><ul>
+<li><a href="#introduction-to-sql">Introduction to SQL</a></li>
+<li><a href="#joining-data-in-sql">Joining Data in SQL</a></li>
+</ul></li>
+<li><a href="#further-resources">Further resources</a></li>
+</ul>
+</div>
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
@@ -361,7 +375,7 @@ div.section {
 <strong>Last updated:</strong> 2019-08-20
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>for-future-reference/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -383,6 +397,66 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20190125code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20190125)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20190125code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20190125)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
@@ -444,7 +518,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/f2b843a9c718e178556efa6d3df619243a51c007/analysis/programming.Rmd" target="_blank">f2b843a</a>
+<a href="https://github.com/jdblischak/for-future-reference/blob/f2b843a9c718e178556efa6d3df619243a51c007/analysis/sql.Rmd" target="_blank">f2b843a</a>
 </td>
 <td>
 John Blischak
@@ -456,91 +530,6 @@ John Blischak
 Add notes on SQL.
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/ce0aa6009404a840179c2327b970c698ea2e4d44/docs/programming.html" target="_blank">ce0aa60</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-04-12
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/5d6218b977c9d4a901be17dfdbfb3e23279c98e1/analysis/programming.Rmd" target="_blank">5d6218b</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-04-12
-</td>
-<td>
-Add notes on Shiny.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/0f8b5831293855b52a80a4508f64363e97023a2f/docs/programming.html" target="_blank">0f8b583</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-03-19
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/65fb12f31c7ca0aa6fa2a29dcdfaca9f1c08d6a9/docs/programming.html" target="_blank">65fb12f</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-29
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/695323a45b6b46563f7afb3ae6f9caca793fe12b/analysis/programming.Rmd" target="_blank">695323a</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-29
-</td>
-<td>
-wflow_publish(c(“analysis/_site.yml“,”analysis/bash.Rmd“,”analysis/index.Rmd“,
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -548,11 +537,203 @@ wflow_publish(c(“analysis/_site.yml“,”analysis/bash.Rmd“,”analysis/ind
 </div>
 </div>
 </div>
+<div id="codecademy" class="section level2">
+<h2>Codecademy</h2>
+<pre class="sql"><code>SELECT * FROM movies;
+
+SELECT name, genre
+FROM movies;
+
+SELECT name AS &#39;Titles&#39;
+FROM movies;
+
+SELECT DISTINCT genre
+from movies;
+
+SELECT *
+FROM movies
+WHERE imdb_rating &lt; 5;
+
+# _ = single character wildcard
+SELECT *
+FROM movies
+WHERE name LIKE &#39;Se_en&#39;;
+
+# % = zero or more characters wildcard
+SELECT *
+FROM movies
+WHERE name LIKE &#39;%man%&#39;;
+
+SELECT name
+FROM movies
+WHERE imdb_rating IS NOT NULL;
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1990 AND 1999;
+
+# Would include movie named &#39;J&#39; but not &#39;JAWS&#39;
+SELECT *
+FROM movies
+WHERE name BETWEEN &#39;A&#39; AND &#39;J&#39;;
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1970 and 1979;
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1970 AND 1979
+   AND imdb_rating &gt; 8;
+
+SELECT *
+FROM movies
+WHERE year &gt; 2014
+   OR genre = &#39;action&#39;;</code></pre>
+<blockquote>
+<p>Note: ORDER BY always goes after WHERE (if WHERE is present).</p>
+</blockquote>
+<pre class="sql"><code>SELECT name, year
+FROM movies
+ORDER BY name;
+
+SELECT name, year, imdb_rating
+FROM movies
+ORDER BY imdb_rating DESC;</code></pre>
+<blockquote>
+<p>LIMIT always goes at the very end of the query. Also, it is not supported in all SQL databases.</p>
+</blockquote>
+<pre class="sql"><code>SELECT *
+FROM movies
+ORDER BY imdb_rating DESC
+LIMIT 3;
+
+SELECT name,
+ CASE
+  WHEN genre = &#39;romance&#39; THEN &#39;Chill&#39;
+  WHEN genre = &#39;comedy&#39; THEN &#39;Chill&#39;
+  ELSE &#39;Intense&#39;
+ END AS &#39;Mood&#39;
+FROM movies;</code></pre>
 <ul>
-<li><a href="bash.html">Bash</a></li>
-<li><a href="shiny.html">Shiny</a></li>
-<li><a href="sql.html">SQL</a></li>
+<li><code>SELECT</code> is the clause we use every time we want to query information from a database.</li>
+<li><code>AS</code> renames a column or table.</li>
+<li><code>DISTINCT</code> return unique values.</li>
+<li><code>WHERE</code> is a popular command that lets you filter the results of the query based on conditions that you specify.</li>
+<li><code>LIKE</code> and <code>BETWEEN</code> are special operators.</li>
+<li><code>AND</code> and <code>OR</code> combines multiple conditions.</li>
+<li><code>ORDER BY</code> sorts the result.</li>
+<li><code>LIMIT</code> specifies the maximum number of rows that the query will return.</li>
+<li><code>CASE</code> creates different outputs.</li>
 </ul>
+</div>
+<div id="dataquest" class="section level2">
+<h2>DataQuest</h2>
+<p>SQL Fundamentals for R Users course</p>
+<div id="introduction-to-sql" class="section level3">
+<h3>Introduction to SQL</h3>
+<pre class="sql"><code>SELECT * from recent_grads LIMIT 10
+
+SELECT Major, ShareWomen from recent_grads WHERE ShareWomen &lt; 0.5
+
+SELECT Major, Major_category, Median, ShareWomen from recent_grads WHERE ShareWomen &gt; 0.5 AND Median &gt; 50000
+
+SELECT Major, Major_category, ShareWomen, Unemployment_rate
+FROM recent_grads
+WHERE Major_category = &#39;Engineering&#39;
+AND (ShareWomen &gt; 0.5 OR Unemployment_rate &lt; 0.051)
+
+SELECT Major, ShareWomen, Unemployment_rate
+FROM recent_grads
+WHERE ShareWomen &gt; 0.3 AND Unemployment_rate &lt; 0.1
+ORDER BY ShareWomen DESC
+
+SELECT Major_category, Major, Unemployment_rate
+FROM recent_grads
+WHERE Major_category = &#39;Engineering&#39; OR Major_category = &#39;Physical Sciences&#39;
+ORDER BY Unemployment_rate
+
+SELECT c.*, f.name AS &#39;country_name&#39;
+FROM facts AS f
+INNER JOIN cities as c
+ON c.facts_id = f.id
+LIMIT 5;</code></pre>
+<blockquote>
+<p>most DBMS require that the SELECT and FROM statements come first followed by any other statements such as WHERE.</p>
+</blockquote>
+</div>
+<div id="joining-data-in-sql" class="section level3">
+<h3>Joining Data in SQL</h3>
+<p>Syntax for an inner join:</p>
+<pre class="sql"><code>SELECT [column_names] FROM [table_name_one]
+INNER JOIN [table_name_two] ON [join_constraint];</code></pre>
+<pre class="sql"><code>SELECT *
+FROM facts
+INNER JOIN cities
+ON cities.facts_id = facts.id
+LIMIT 10;
+
+SELECT f.name AS country, c.name as capital_city
+FROM cities c
+INNER JOIN facts f ON f.id = c.facts_id
+WHERE c.capital = 1;
+
+SELECT f.name AS country, f.population
+FROM facts f
+LEFT JOIN cities c ON c.facts_id = f.id
+WHERE c.name IS NULL;
+
+SELECT c.name AS capital_city, f.name AS country, c.population
+FROM facts f
+INNER JOIN cities c ON c.facts_id = f.id
+WHERE capital = 1
+ORDER BY c.population DESC
+LIMIT 10;
+
+SELECT c.name capital_city, f.name country, c.population
+FROM facts f
+INNER JOIN (
+            SELECT * FROM cities
+            WHERE capital = 1
+               AND population &gt; 10000000
+            ) c ON c.facts_id = f.id
+ORDER BY c.population DESC
+LIMIT 10;</code></pre>
+</div>
+</div>
+<div id="further-resources" class="section level2">
+<h2>Further resources</h2>
+<ul>
+<li><a href="https://sqlzoo.net/">SQLZOO</a></li>
+</ul>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.3.3 (2017-03-06)
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Running under: OS X Yosemite 10.10.5
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] workflowr_1.4.0.9000 Rcpp_1.0.0           digest_0.6.13       
+ [4] rprojroot_1.3-2      backports_1.1.2      git2r_0.26.1        
+ [7] magrittr_1.5         evaluate_0.10.1      stringi_1.3.1       
+[10] fs_1.3.1             whisker_0.3-2        rmarkdown_1.10.14   
+[13] htmldeps_0.1.1       tools_3.3.3          stringr_1.4.0       
+[16] glue_1.3.1           xfun_0.3             yaml_2.2.0          
+[19] htmltools_0.3.6      knitr_1.21          </code></pre>
+</div>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
