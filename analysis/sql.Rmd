@@ -1,0 +1,188 @@
+---
+title: "SQL"
+author: "John Blischak"
+date: "2019-08-20"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Codecademy
+
+```{sql, eval=FALSE}
+SELECT * FROM movies;
+
+SELECT name, genre
+FROM movies;
+
+SELECT name AS 'Titles'
+FROM movies;
+
+SELECT DISTINCT genre
+from movies;
+
+SELECT *
+FROM movies
+WHERE imdb_rating < 5;
+
+# _ = single character wildcard
+SELECT *
+FROM movies
+WHERE name LIKE 'Se_en';
+
+# % = zero or more characters wildcard
+SELECT *
+FROM movies
+WHERE name LIKE '%man%';
+
+SELECT name
+FROM movies
+WHERE imdb_rating IS NOT NULL;
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1990 AND 1999;
+
+# Would include movie named 'J' but not 'JAWS'
+SELECT *
+FROM movies
+WHERE name BETWEEN 'A' AND 'J';
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1970 and 1979;
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1970 AND 1979
+   AND imdb_rating > 8;
+
+SELECT *
+FROM movies
+WHERE year > 2014
+   OR genre = 'action';
+```
+
+> Note: ORDER BY always goes after WHERE (if WHERE is present).
+
+```{sql, eval=FALSE}
+SELECT name, year
+FROM movies
+ORDER BY name;
+
+SELECT name, year, imdb_rating
+FROM movies
+ORDER BY imdb_rating DESC;
+```
+
+> LIMIT always goes at the very end of the query. Also, it is not supported in all SQL databases.
+
+```{sql, eval=FALSE}
+SELECT *
+FROM movies
+ORDER BY imdb_rating DESC
+LIMIT 3;
+
+SELECT name,
+ CASE
+  WHEN genre = 'romance' THEN 'Chill'
+  WHEN genre = 'comedy' THEN 'Chill'
+  ELSE 'Intense'
+ END AS 'Mood'
+FROM movies;
+```
+
+* `SELECT` is the clause we use every time we want to query information from a database.
+* `AS` renames a column or table.
+* `DISTINCT` return unique values.
+* `WHERE` is a popular command that lets you filter the results of the query based on conditions that you specify.
+* `LIKE` and `BETWEEN` are special operators.
+* `AND` and `OR` combines multiple conditions.
+* `ORDER BY` sorts the result.
+* `LIMIT` specifies the maximum number of rows that the query will return.
+* `CASE` creates different outputs.
+
+## DataQuest
+
+SQL Fundamentals for R Users course
+
+### Introduction to SQL
+
+```{sql, eval=FALSE}
+SELECT * from recent_grads LIMIT 10
+
+SELECT Major, ShareWomen from recent_grads WHERE ShareWomen < 0.5
+
+SELECT Major, Major_category, Median, ShareWomen from recent_grads WHERE ShareWomen > 0.5 AND Median > 50000
+
+SELECT Major, Major_category, ShareWomen, Unemployment_rate
+FROM recent_grads
+WHERE Major_category = 'Engineering'
+AND (ShareWomen > 0.5 OR Unemployment_rate < 0.051)
+
+SELECT Major, ShareWomen, Unemployment_rate
+FROM recent_grads
+WHERE ShareWomen > 0.3 AND Unemployment_rate < 0.1
+ORDER BY ShareWomen DESC
+
+SELECT Major_category, Major, Unemployment_rate
+FROM recent_grads
+WHERE Major_category = 'Engineering' OR Major_category = 'Physical Sciences'
+ORDER BY Unemployment_rate
+
+SELECT c.*, f.name AS 'country_name'
+FROM facts AS f
+INNER JOIN cities as c
+ON c.facts_id = f.id
+LIMIT 5;
+```
+
+> most DBMS require that the SELECT and FROM statements come first followed by any other statements such as WHERE.
+
+### Joining Data in SQL
+
+Syntax for an inner join:
+
+```{sql, eval=FALSE}
+SELECT [column_names] FROM [table_name_one]
+INNER JOIN [table_name_two] ON [join_constraint];
+```
+
+```{sql, eval=FALSE}
+SELECT *
+FROM facts
+INNER JOIN cities
+ON cities.facts_id = facts.id
+LIMIT 10;
+
+SELECT f.name AS country, c.name as capital_city
+FROM cities c
+INNER JOIN facts f ON f.id = c.facts_id
+WHERE c.capital = 1;
+
+SELECT f.name AS country, f.population
+FROM facts f
+LEFT JOIN cities c ON c.facts_id = f.id
+WHERE c.name IS NULL;
+
+SELECT c.name AS capital_city, f.name AS country, c.population
+FROM facts f
+INNER JOIN cities c ON c.facts_id = f.id
+WHERE capital = 1
+ORDER BY c.population DESC
+LIMIT 10;
+
+SELECT c.name capital_city, f.name country, c.population
+FROM facts f
+INNER JOIN (
+            SELECT * FROM cities
+            WHERE capital = 1
+               AND population > 10000000
+            ) c ON c.facts_id = f.id
+ORDER BY c.population DESC
+LIMIT 10;
+```
+
+## Further resources
+
+* [SQLZOO](https://sqlzoo.net/)

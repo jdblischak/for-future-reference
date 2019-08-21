@@ -8,3 +8,4 @@ output:
 
 * [Bash](bash.html)
 * [Shiny](shiny.html)
+* [SQL](sql.html)
