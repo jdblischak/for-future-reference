@@ -79,7 +79,6 @@ docker run --rm -it <image> bash
 
 ## Building a Docker image
 
-
 * Build and tag an image specified in a file `Dockerfile` in the current working
 directory:
 
@@ -158,6 +157,32 @@ Resources:
 * [rocker - managing users in docker](https://github.com/rocker-org/rocker/wiki/managing-users-in-docker)
 * [rocker - Sharing files with host machine](https://github.com/rocker-org/rocker/wiki/Sharing-files-with-host-machine)
 * [Use volumes](https://docs.docker.com/storage/volumes/)
+
+## Specifying a Docker image by its digest
+
+A tag is a moving target. When the image owner updates the image build, they can
+move the tag to this latest version. While a tag like `latest` makes it obvious
+that this is transient, any tag can be updated. To ensure that you are always
+using the exact same version of an image (e.g. for a CI build), you can specify
+the digest of the image. Note that this is not the same as the ID number
+returned by `docker image list`. Instead you have to use `docker image inspect`
+^[Yes, you can use the shortcut `docker inspect`]. The result is a JSON blob, so
+you can extract the digest using a format string: `{{.RepoDigests}}`. This will
+return the digest for the current version of `IMAGE:TAG` that you have on your
+local machine. To get the latest digest, make sure to `pull` prior to
+inspection.
+
+```
+docker image inspect -f "{{.RepoDigests}}" IMAGE:TAG
+```
+
+Note that you can also see the digest whenever you `pull` an image, and you can
+also obtain it via the DockerHub UI. Once you have the digest, you can refer to
+it by prefixing with `@`:
+
+```
+docker run -it --rm IMAGE@DIGEST
+```
 
 ## Useful images
 
