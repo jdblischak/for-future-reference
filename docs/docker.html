@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="John Blischak" />
@@ -88,7 +89,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -249,18 +249,6 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -307,6 +295,9 @@ $(document).ready(function () {
     <li>
       <a href="software.html">Software development</a>
     </li>
+    <li>
+      <a href="stats.html">Statistics</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -351,6 +342,7 @@ div.section {
 <li><a href="#using-docker-containers">Using Docker containers</a></li>
 <li><a href="#building-a-docker-image">Building a Docker image</a></li>
 <li><a href="#mounting-a-local-directory-in-a-docker-container">Mounting a local directory in a Docker container</a></li>
+<li><a href="#specifying-a-docker-image-by-its-digest">Specifying a Docker image by its digest</a></li>
 <li><a href="#useful-images">Useful images</a></li>
 <li><a href="#tutorials">Tutorials</a></li>
 </ul>
@@ -367,7 +359,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -376,7 +368,7 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-03-19
+<strong>Last updated:</strong> 2019-10-01
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -386,11 +378,11 @@ div.section {
 </p>
 <p>
 This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.2.0.9000). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.4.0.9001). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
-<div id="report" class="tab-pane fade">
+<div id="checks" class="tab-pane fade">
 <div id="workflowr-checks" class="panel-group">
 <div class="panel panel-default">
 <div class="panel-heading">
@@ -407,10 +399,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree0f5789dfb31dfd225e819da48bd5d2c7775722f3targetblank0f5789da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/0f5789dfb31dfd225e819da48bd5d2c7775722f3" target="_blank">0f5789d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreeb3183a128b8b9787befdc3b9a6f1f3553863fb11targetblankb3183a1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/b3183a128b8b9787befdc3b9a6f1f3553863fb11" target="_blank">b3183a1</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree0f5789dfb31dfd225e819da48bd5d2c7775722f3targetblank0f5789da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreeb3183a128b8b9787befdc3b9a6f1f3553863fb11targetblankb3183a1a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -419,6 +411,12 @@ Great! You are using Git for version control. Tracking code development and conn
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  .binder/
+    Untracked:  docs/figure/summation.Rmd/example-1.pdf
+    Untracked:  docs/figure/summation.Rmd/example-1.svg
+    Untracked:  docs/figure/variance.Rmd/
 
 </code></pre>
 <p>
@@ -457,6 +455,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jdblischak/for-future-reference/blob/b3183a128b8b9787befdc3b9a6f1f3553863fb11/analysis/docker.Rmd" target="_blank">b3183a1</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-10-01
+</td>
+<td>
+Explain how to obtain Docker image digest.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/0f8b5831293855b52a80a4508f64363e97023a2f/docs/docker.html" target="_blank">0f8b583</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-03-19
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -502,7 +534,7 @@ html
 John Blischak
 </td>
 <td>
-2019-01-28
+2019-01-29
 </td>
 <td>
 Build site.
@@ -519,7 +551,7 @@ Rmd
 John Blischak
 </td>
 <td>
-2019-01-28
+2019-01-29
 </td>
 <td>
 Add notes on using Docker.
@@ -639,6 +671,13 @@ CMD [ &quot;/bin/bash&quot; ]</code></pre>
 <li><a href="https://docs.docker.com/storage/volumes/">Use volumes</a></li>
 </ul>
 </div>
+<div id="specifying-a-docker-image-by-its-digest" class="section level2">
+<h2>Specifying a Docker image by its digest</h2>
+<p>A tag is a moving target. When the image owner updates the image build, they can move the tag to this latest version. While a tag like <code>latest</code> makes it obvious that this is transient, any tag can be updated. To ensure that you are always using the exact same version of an image (e.g. for a CI build), you can specify the digest of the image. Note that this is not the same as the ID number returned by <code>docker image list</code>. Instead you have to use <code>docker image inspect</code> <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The result is a JSON blob, so you can extract the digest using a format string: <code>{{.RepoDigests}}</code>. This will return the digest for the current version of <code>IMAGE:TAG</code> that you have on your local machine. To get the latest digest, make sure to <code>pull</code> prior to inspection.</p>
+<pre><code>docker image inspect -f &quot;{{.RepoDigests}}&quot; IMAGE:TAG</code></pre>
+<p>Note that you can also see the digest whenever you <code>pull</code> an image, and you can also obtain it via the DockerHub UI. Once you have the digest, you can refer to it by prefixing with <code>@</code>:</p>
+<pre><code>docker run -it --rm IMAGE@DIGEST</code></pre>
+</div>
 <div id="useful-images" class="section level2">
 <h2>Useful images</h2>
 <ul>
@@ -663,6 +702,12 @@ CMD [ &quot;/bin/bash&quot; ]</code></pre>
 <li><a href="http://erick.matsen.org/2018/04/19/docker.html">Docker for the busy researcher</a></li>
 <li><a href="http://tiffanytimbers.com/Using-docker-for-reproducible-research/">Using Docker for Reproducible Research</a></li>
 </ul>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Yes, you can use the shortcut <code>docker inspect</code><a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
 
 
@@ -694,6 +739,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
