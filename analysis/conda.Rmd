@@ -1,0 +1,36 @@
+---
+title: "conda"
+author: "John Blischak"
+date: "2019-10-02"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+[conda](https://docs.conda.io/) is a package and environment manager.
+
+> Package, dependency and environment management for any language—Python, R,
+Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN, and more.
+
+## Pin a package
+
+```
+conda config --add pinned_packages conda-forge::r-callr=3.3.0
+```
+
+To only pin the package in the current environment, use the `--env` flag:
+
+> **--env**             Write to the active conda environment .condarc file.
+                        If no environment is
+                        active, write to the user config file.
+
+```
+conda config --env --add pinned_packages conda-forge::r-callr=3.3.0
+```
+
+Note that this isn't well-documented. The current conda docs recommend 
+[pinning a package](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#preventing-packages-from-updating-pinning)
+by manually creatingthe file `pinned` in the `conda-meta` subdirectory of the
+environment, and then adding the pins there.
+
+[Source](https://github.com/conda-forge/r-base-feedstock/issues/68#issuecomment-460792441)
