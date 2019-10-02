@@ -10,18 +10,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="John Blischak" />
 
+<meta name="date" content="2019-10-02" />
 
-<title>Software development</title>
+<title>conda</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
@@ -71,6 +73,7 @@ h6 {
 }
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -328,10 +331,17 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Software development</h1>
+<h1 class="title toc-ignore">conda</h1>
+<h4 class="author">John Blischak</h4>
+<h4 class="date">2019-10-02</h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#pin-a-package">Pin a package</a></li>
+</ul>
+</div>
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
@@ -445,7 +455,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/5602422b82c37df3996cd48e66771c08db4e09e3/analysis/software.Rmd" target="_blank">5602422</a>
+<a href="https://github.com/jdblischak/for-future-reference/blob/5602422b82c37df3996cd48e66771c08db4e09e3/analysis/conda.Rmd" target="_blank">5602422</a>
 </td>
 <td>
 John Blischak
@@ -457,57 +467,6 @@ John Blischak
 Document how to pin a pkg in a conda env
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/0f8b5831293855b52a80a4508f64363e97023a2f/docs/software.html" target="_blank">0f8b583</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-03-19
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/84cd2a16cdcc30ecac4d1f1ecb6a20f1fe208256/docs/software.html" target="_blank">84cd2a1</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-29
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jdblischak/for-future-reference/blob/86f5c3d56a2f30b9f56f166374830a1cddabbee3/analysis/software.Rmd" target="_blank">86f5c3d</a>
-</td>
-<td>
-John Blischak
-</td>
-<td>
-2019-01-29
-</td>
-<td>
-Add notes on using Docker.
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -515,10 +474,21 @@ Add notes on using Docker.
 </div>
 </div>
 </div>
-<ul>
-<li><a href="conda.html">conda</a></li>
-<li><a href="docker.html">Docker</a></li>
-</ul>
+<p><a href="https://docs.conda.io/">conda</a> is a package and environment manager.</p>
+<blockquote>
+<p>Package, dependency and environment management for any language—Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN, and more.</p>
+</blockquote>
+<div id="pin-a-package" class="section level2">
+<h2>Pin a package</h2>
+<pre><code>conda config --add pinned_packages conda-forge::r-callr=3.3.0</code></pre>
+<p>To only pin the package in the current environment, use the <code>--env</code> flag:</p>
+<blockquote>
+<p><strong>–env</strong> Write to the active conda environment .condarc file. If no environment is active, write to the user config file.</p>
+</blockquote>
+<pre><code>conda config --env --add pinned_packages conda-forge::r-callr=3.3.0</code></pre>
+<p>Note that this isn’t well-documented. The current conda docs recommend <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#preventing-packages-from-updating-pinning">pinning a package</a> by manually creatingthe file <code>pinned</code> in the <code>conda-meta</code> subdirectory of the environment, and then adding the pins there.</p>
+<p><a href="https://github.com/conda-forge/r-base-feedstock/issues/68#issuecomment-460792441">Source</a></p>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
