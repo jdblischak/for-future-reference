@@ -201,6 +201,17 @@ docker run -i -t -p 8888:8888 continuumio/miniconda3 /bin/bash -c "/opt/conda/bi
 ([source](https://github.com/rocker-org/rocker))
     * r-base, r-tidyverse, rocker/tidyverse:3.3.1
 
+To launch RStudio Server from inside a Docker container, run the command below
+and then open the browser to http://localhost:8787/.
+
+```
+docker run -it --rm -p 8787:8787 rocker/tidyverse
+```
+
+The username and password are both "rstudio". For anyone else reading this,
+that means you should only run this on your local machine. Never expose this
+online since it is obviously super insecure.
+
 * [sagemath](https://hub.docker.com/r/sagemath/sagemath/)
 ([source](https://github.com/sagemath/sage/blob/master/docker/Dockerfile))
 
