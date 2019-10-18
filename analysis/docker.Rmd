@@ -189,46 +189,44 @@ docker run -it --rm IMAGE@DIGEST
 * [continuumio/miniconda3](https://hub.docker.com/r/continuumio/miniconda3)
 ([source](https://github.com/ContinuumIO/docker-images))
 
-Launch Jupyter from a Docker container (see my
-[comment](https://github.com/ContinuumIO/docker-images/issues/85#issuecomment-437152550)
-on GitHub for details):
+    Launch Jupyter from a Docker container (see my
+    [comment](https://github.com/ContinuumIO/docker-images/issues/85#issuecomment-437152550)
+    on GitHub for details):
 
-```
-docker run -i -t -p 8888:8888 continuumio/miniconda3 /bin/bash -c "/opt/conda/bin/conda install -c conda-forge jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='0.0.0.0' --port=8888 --no-browser --allow-root"
-```
+    ```
+    docker run -i -t -p 8888:8888 continuumio/miniconda3 /bin/bash -c "/opt/conda/bin/conda install -c     conda-forge jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook     --notebook-dir=/opt/notebooks --ip='0.0.0.0' --port=8888 --no-browser --allow-root"
+    ```
 
 * [rocker](https://hub.docker.com/u/rocker)
 ([source](https://github.com/rocker-org/rocker))
     * r-base, r-tidyverse, rocker/tidyverse:3.3.1
 
-To launch RStudio Server from inside a Docker container, run the command below
-and then open the browser to http://localhost:8787/.
+    To launch RStudio Server from inside a Docker container, run the command below
+    and then open the browser to http://localhost:8787/.
 
-```
-docker run -it --rm -p 8787:8787 rocker/tidyverse
-```
+    ```
+    docker run -it --rm -p 8787:8787 rocker/tidyverse
+    ```
 
-The username and password are both "rstudio". For anyone else reading this,
-that means you should only run this on your local machine. Never expose this
-online since it is obviously super insecure.
+    The username and password are both "rstudio". For anyone else reading this,
+    that means you should only run this on your local machine. Never expose this
+    online since it is obviously super insecure.
 
 * [sagemath](https://hub.docker.com/r/sagemath/sagemath/)
 ([source](https://github.com/sagemath/sage/blob/master/docker/Dockerfile))
 
-```
-docker run -p 8888:8888 sagemath/sagemath:latest sage-jupyter
-```
+    ```
+    docker run -p 8888:8888 sagemath/sagemath:latest sage-jupyter
+    ```
 
-The URL that `sage-jupyter` returns is rough, e.g.
-`http://0efce28e9a34:8888/?token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b&token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b`.
-First, you have to update the address to be `http://localhost:8888`. Second, it
-repeats the same token twice. This still works though.
+    The URL that `sage-jupyter` returns is rough, e.g.
+    `http://0efce28e9a34:8888/?token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b&token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b`.
+    First, you have to update the address to be `http://localhost:8888`. Second, it
+    repeats the same token twice. This still works though.
 
-Note that `sage-jupyter` is a variable that is controlled by
-[`entrypoint.sh`](https://github.com/sagemath/sage/blob/master/docker/entrypoint.sh).
-It executes `sage -n jupyter --no-browser --ip='0.0.0.0' --port=8888`.
-
-
+    Note that `sage-jupyter` is a variable that is controlled by
+    [`entrypoint.sh`](https://github.com/sagemath/sage/blob/master/docker/entrypoint.sh).
+    It executes `sage -n jupyter --no-browser --ip='0.0.0.0' --port=8888`.
 
 ## Tutorials
 
