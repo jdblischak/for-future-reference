@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -27,6 +26,14 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -237,6 +244,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -320,13 +328,6 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<!-- Add a small amount of space between sections. -->
-<style type="text/css">
-div.section {
-  padding-top: 12px;
-}
-</style>
-
 <div class="fluid-row" id="header">
 
 
@@ -368,7 +369,7 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-10-18
+<strong>Last updated:</strong> 2020-05-05
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -378,7 +379,7 @@ div.section {
 </p>
 <p>
 This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.4.0.9002). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -399,24 +400,33 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree568dbd6b6e59a0c6678c416b5bf3cc3b70de7690targetblank568dbd6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/568dbd6b6e59a0c6678c416b5bf3cc3b70de7690" target="_blank">568dbd6</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreec3b099d6be07045412703a576b701c2dfa73b48dtargetblankc3b099da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jdblischak/for-future-reference/tree/c3b099d6be07045412703a576b701c2dfa73b48d" target="_blank">c3b099d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetree568dbd6b6e59a0c6678c416b5bf3cc3b70de7690targetblank568dbd6a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjdblischakforfuturereferencetreec3b099d6be07045412703a576b701c2dfa73b48dtargetblankc3b099da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
-Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/jdblischak/for-future-reference/tree/c3b099d6be07045412703a576b701c2dfa73b48d" target="_blank">c3b099d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    README.html
+    Ignored:    analysis/test.html
 
 Untracked files:
     Untracked:  .binder/
-    Untracked:  docs/figure/summation.Rmd/example-1.pdf
-    Untracked:  docs/figure/summation.Rmd/example-1.svg
-    Untracked:  docs/figure/variance.Rmd/
+    Untracked:  analysis/test.Rmd
+    Untracked:  data/new.txt
+    Untracked:  err.txt
+    Untracked:  out.txt
 
 </code></pre>
 <p>
@@ -431,7 +441,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/docker.Rmd</code>) and HTML (<code>docs/docker.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -455,6 +465,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jdblischak/for-future-reference/blob/c3b099d6be07045412703a576b701c2dfa73b48d/analysis/docker.Rmd" target="_blank">c3b099d</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2020-05-05
+</td>
+<td>
+Update password policy for Docker image rocker/tidyverse.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jdblischak/for-future-reference/8659b07a9d3e0f9b861a63f5918366e9727d9bc8/docs/docker.html" target="_blank">8659b07</a>
+</td>
+<td>
+John Blischak
+</td>
+<td>
+2019-10-18
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -585,7 +629,7 @@ html
 John Blischak
 </td>
 <td>
-2019-01-29
+2019-01-28
 </td>
 <td>
 Build site.
@@ -602,7 +646,7 @@ Rmd
 John Blischak
 </td>
 <td>
-2019-01-29
+2019-01-28
 </td>
 <td>
 Add notes on using Docker.
@@ -740,8 +784,8 @@ CMD [ &quot;/bin/bash&quot; ]</code></pre>
 <li>r-base, r-tidyverse, rocker/tidyverse:3.3.1</li>
 </ul>
 <p>To launch RStudio Server from inside a Docker container, run the command below and then open the browser to <a href="http://localhost:8787/" class="uri">http://localhost:8787/</a>.</p>
-<pre><code>docker run -it --rm -p 8787:8787 rocker/tidyverse</code></pre>
-<p>The username and password are both “rstudio”. For anyone else reading this, that means you should only run this on your local machine. Never expose this online since it is obviously super insecure.</p></li>
+<pre><code>docker run -it --rm -p 8787:8787 -e PASSWORD=&lt;YOUR_PASS&gt; rocker/tidyverse</code></pre>
+<p>The username is “rstudio”.</p></li>
 <li><p><a href="https://hub.docker.com/r/sagemath/sagemath/">sagemath</a> (<a href="https://github.com/sagemath/sage/blob/master/docker/Dockerfile">source</a>)</p>
 <pre><code>docker run -p 8888:8888 sagemath/sagemath:latest sage-jupyter</code></pre>
 <p>The URL that <code>sage-jupyter</code> returns is rough, e.g. <code>http://0efce28e9a34:8888/?token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b&amp;token=791b95e58b652231dc507bb4fd9f2af7ea65b62d2eee4d7b</code>. First, you have to update the address to be <code>http://localhost:8888</code>. Second, it repeats the same token twice. This still works though.</p>
