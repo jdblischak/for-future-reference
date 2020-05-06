@@ -205,12 +205,10 @@ docker run -it --rm IMAGE@DIGEST
     and then open the browser to http://localhost:8787/.
 
     ```
-    docker run -it --rm -p 8787:8787 rocker/tidyverse
+    docker run -it --rm -p 8787:8787 -e PASSWORD=<YOUR_PASS> rocker/tidyverse
     ```
 
-    The username and password are both "rstudio". For anyone else reading this,
-    that means you should only run this on your local machine. Never expose this
-    online since it is obviously super insecure.
+    The username is "rstudio".
 
 * [sagemath](https://hub.docker.com/r/sagemath/sagemath/)
 ([source](https://github.com/sagemath/sage/blob/master/docker/Dockerfile))
